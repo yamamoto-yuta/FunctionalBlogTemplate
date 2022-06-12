@@ -8,6 +8,6 @@ let config = {
 }
 
 // ↓ ** Do not touch this line ** ↓
-config['basePath'] = '/RibbonCMS_sideF/'
+config['basePath'] = '/RibbonCMS_sideF'
 
 module.exports = withBundleAnalyzer(config)
