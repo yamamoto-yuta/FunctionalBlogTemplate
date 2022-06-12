@@ -23,6 +23,7 @@ export function getConfigJson() {
         jsonText = fs.readFileSync(jsonPath, 'utf-8')
     } catch (err) {
         console.log('config.json not exists.')
+        // Set default values
         jsonText = `
         {
             "blog_title": "Simple Blog Design",
