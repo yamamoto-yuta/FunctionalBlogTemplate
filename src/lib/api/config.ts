@@ -10,17 +10,34 @@ export type ConfigJson = {
     url_domain: string
     url_subpath: string
     issues_edit_page: string
-    //favicon_image_url: string
-    author_name: string
-    author_introduction: string
-    //avatar_image_url: string
-    //sns: { name: string; url: string }[]
+    author_name: string | undefined
+    author_introduction: string | undefined
+    avatar_image_url: string | undefined
+    sns: { name: string; url: string }[] | undefined
 }
-  
+
 export function getConfigJson() {
-    const jsonPath = path.join(process.cwd(), 'consts', 'profile.json')
-    const jsonText = fs.readFileSync(jsonPath, 'utf-8')
+    const jsonPath = path.join(process.cwd(), 'contents', 'etc', 'config.json')
+    let jsonText: string
+    try {
+        jsonText = fs.readFileSync(jsonPath, 'utf-8')
+    } catch (err) {
+        console.log('config.json not exists.')
+        jsonText = `
+        {
+            "blog_title": "Simple Blog Design",
+            "site_introduction": "Simple template of RibbonCMS sideF",
+            "copylight_name": "RibbonCMS",
+            "copylight_url": "https://github.com/RibbonCMS",
+            "root_url": "https://ribboncms.github.io/RibbonCMS_sideF/",
+            "issues_page_url": "",
+            "favicon_image_url": "",
+            "author_name": "RibbonCMS team",
+            "author_introduction": "",
+            "url_domain": "",
+            "url_subpath": ""
+        }`
+    }
     let config = JSON.parse(jsonText) as ConfigJson
     return config
 }
-  
