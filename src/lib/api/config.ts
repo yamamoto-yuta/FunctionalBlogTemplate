@@ -18,7 +18,7 @@ export type ConfigJson = {
 
 const configDirectory = path.join(process.cwd(), 'contents', 'etc')
 
-export function getConfigJson() {
+export const getConfigJson = () => {
     const jsonPath = path.join(configDirectory, 'config.json')
     try {
         const jsonText = fs.readFileSync(jsonPath, 'utf-8')
