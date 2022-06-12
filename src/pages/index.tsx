@@ -1,7 +1,7 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
 import Copyright from '../components/Copylight'
-import { IndexPage } from '../components/IndexPage'
+import { IndexPage } from '../components/pages/IndexPage'
 import { ConfigJson, getConfigJson } from '../lib/api/config'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>

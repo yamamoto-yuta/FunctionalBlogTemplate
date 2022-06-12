@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material"
-import { ConfigJson } from "../lib/api/config"
+import { ConfigJson } from "../../lib/api/config"
 import Link from 'next/link'
 
 export const IndexPage = ({ config }: { config: ConfigJson }) => {
