@@ -11,3 +11,5 @@ updated_at: ''
 ## test
 
 test post
+
+[aaa](/)
