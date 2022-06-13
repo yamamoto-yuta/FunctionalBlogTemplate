@@ -10,7 +10,7 @@ export const IndexPage = ({ config }: { config: ConfigJson }) => {
       </Typography>
       <Box sx={{ m: '3rem' }} />
       <Typography variant="body1" align="center">
-        This is simplist template design of RibbonCMS Blog.
+        This is the most simple template of RibbonCMS Blog.
         <br />
         articles page is{' '}
         <Link href={`/articles`} passHref>
