@@ -18,6 +18,9 @@ export type ConfigJson = {
 
 const configDirectory = path.join(process.cwd(), 'contents', 'etc')
 
+/**
+ * return a config.json object.
+ */
 export const getConfigJson = () => {
   const jsonPath = path.join(configDirectory, 'config.json')
   try {

@@ -9,6 +9,9 @@ export type Tag = {
 
 const tagsDirectory = path.join(process.cwd(), 'contents', 'etc')
 
+/**
+ * return a tags.json object.
+ */
 export const getTagsJson = () => {
   try {
     const jsonPath = path.join(tagsDirectory, 'tags.json')
