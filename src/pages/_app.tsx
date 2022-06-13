@@ -16,16 +16,16 @@ interface MyAppProps extends AppProps {
 }
 
 export const ArticlesContext = createContext(
-    {} as {
-      posts: ArticlesMap
-      setPosts: Dispatch<React.SetStateAction<ArticlesMap>>
-    },
-  )
+  {} as {
+    posts: ArticlesMap
+    setPosts: Dispatch<React.SetStateAction<ArticlesMap>>
+  },
+)
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
   const initPosts: ArticlesMap = Object.create(null)
-    const [posts, setPosts] = useState(initPosts)
+  const [posts, setPosts] = useState(initPosts)
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -34,9 +34,9 @@ export default function MyApp(props: MyAppProps) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-          <ArticlesContext.Provider value={{ posts, setPosts }}>
-            <Component {...pageProps} />
-          </ArticlesContext.Provider>
+        <ArticlesContext.Provider value={{ posts, setPosts }}>
+          <Component {...pageProps} />
+        </ArticlesContext.Provider>
       </ThemeProvider>
     </CacheProvider>
   )

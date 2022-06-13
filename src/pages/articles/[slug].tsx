@@ -92,7 +92,9 @@ export const getStaticProps = async ({ params }: any) => {
   //const metadata = getResourcesJson()
   const slugs: string[] = extractArticleLink(post.content)
   const postsMap = articlesListToMap(
-    getAllArticles(['slug', 'title', 'posted_at', 'tags']).filter(post => slugs.includes(post.slug))
+    getAllArticles(['slug', 'title', 'posted_at', 'tags']).filter((post) =>
+      slugs.includes(post.slug),
+    ),
   )
   // const relatedSlugs = getRelatedJson()[post.slug]
   // const relatedPosts = relatedSlugs.map((slug) => {return posts[slug]})

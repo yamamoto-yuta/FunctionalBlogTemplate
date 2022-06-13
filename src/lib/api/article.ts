@@ -14,14 +14,14 @@ export type Article = {
 }
 
 export type ArticlesMap = {
-    [slug: string]: {
-      slug: string
-      title: string
-      tags: Tag[]
-      posted_at: string
-    }
+  [slug: string]: {
+    slug: string
+    title: string
+    tags: Tag[]
+    posted_at: string
   }
-    
+}
+
 const postsDirectory = path.join(process.cwd(), 'contents', 'articles')
 
 /**
@@ -106,16 +106,16 @@ export const getAllArticles = (fields: string[] = []) => {
  * @param posts Article[] to convert
  */
 export const articlesListToMap = (posts: Article[]) => {
-    const postsMap: ArticlesMap = Object.create(null)
-    posts.forEach((post, i) => {
-      postsMap[post.slug] = {
-        slug: post.slug,
-        title: post.title,
-        tags: post.tags,
-        posted_at: post.posted_at,
-      }
-    })
-    return postsMap
+  const postsMap: ArticlesMap = Object.create(null)
+  posts.forEach((post, i) => {
+    postsMap[post.slug] = {
+      slug: post.slug,
+      title: post.title,
+      tags: post.tags,
+      posted_at: post.posted_at,
+    }
+  })
+  return postsMap
 }
 
 /**
@@ -123,7 +123,11 @@ export const articlesListToMap = (posts: Article[]) => {
  * @param text some text
  */
 export const extractArticleLink = (text: string) => {
-    const articleLinkPattern = /^#(\d+)\s*$/gm
-    const slugs: string[] = [...text.matchAll(articleLinkPattern)].map(match => {return match[1]})
-    return slugs
+  const articleLinkPattern = /^#(\d+)\s*$/gm
+  const slugs: string[] = [...text.matchAll(articleLinkPattern)].map(
+    (match) => {
+      return match[1]
+    },
+  )
+  return slugs
 }

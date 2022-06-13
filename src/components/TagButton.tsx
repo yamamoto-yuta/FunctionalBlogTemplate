@@ -7,34 +7,22 @@ import theme from '../lib/theme'
 const tagColorGenerate = (themeHex: string, mode: 'light' | 'dark') => {
   const themeHsl = hex2hsl(themeHex)
   let fg, bg, ol, fgHover, bgHover, olHover
-  if (mode==='light') {
+  if (mode === 'light') {
     fg = hsl2hex(setHsl(themeHsl, { h: undefined, s: undefined, l: 30 }))
     bg = hsl2hex(setHsl(themeHsl, { h: undefined, s: undefined, l: 98 }))
     ol = hsl2hex(setHsl(themeHsl, { h: undefined, s: undefined, l: 30 }))
-    fgHover = hsl2hex(
-      setHsl(themeHsl, { h: undefined, s: undefined, l: 30 }),
-    )
-    bgHover = hsl2hex(
-      setHsl(themeHsl, { h: undefined, s: undefined, l: 93 }),
-    )
-    olHover = hsl2hex(
-      setHsl(themeHsl, { h: undefined, s: undefined, l: 30 }),
-    )
-  } else if (mode==='dark'){
+    fgHover = hsl2hex(setHsl(themeHsl, { h: undefined, s: undefined, l: 30 }))
+    bgHover = hsl2hex(setHsl(themeHsl, { h: undefined, s: undefined, l: 93 }))
+    olHover = hsl2hex(setHsl(themeHsl, { h: undefined, s: undefined, l: 30 }))
+  } else if (mode === 'dark') {
     fg = hsl2hex(setHsl(themeHsl, { h: undefined, s: undefined, l: 75 }))
     bg = hsl2hex(setHsl(themeHsl, { h: undefined, s: undefined, l: 11 }))
     ol = hsl2hex(setHsl(themeHsl, { h: undefined, s: undefined, l: 35 }))
-    fgHover = hsl2hex(
-      setHsl(themeHsl, { h: undefined, s: undefined, l: 75 }),
-    )
-    bgHover = hsl2hex(
-      setHsl(themeHsl, { h: undefined, s: undefined, l: 17 }),
-    )
-    olHover = hsl2hex(
-      setHsl(themeHsl, { h: undefined, s: undefined, l: 35 }),
-  )
-}
-return { fg, bg, ol, fgHover, bgHover, olHover }
+    fgHover = hsl2hex(setHsl(themeHsl, { h: undefined, s: undefined, l: 75 }))
+    bgHover = hsl2hex(setHsl(themeHsl, { h: undefined, s: undefined, l: 17 }))
+    olHover = hsl2hex(setHsl(themeHsl, { h: undefined, s: undefined, l: 35 }))
+  }
+  return { fg, bg, ol, fgHover, bgHover, olHover }
 }
 
 export const TagButton = ({ tag }: { tag: Tag }) => {

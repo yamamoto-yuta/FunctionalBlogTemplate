@@ -254,10 +254,7 @@ const Paragraph: Components['p'] = ({ node, ...props }) => {
   ) {
     return <EmbedLink url={child.properties.href} />
   }
-  if (
-    child.type === 'text' &&
-    /^#\d+\s*$/.test(child.value)
-  ) {
+  if (child.type === 'text' && /^#\d+\s*$/.test(child.value)) {
     const slug = child.value.replace('#', '').replace(/\s/g, '')
     const { posts } = useContext(ArticlesContext)
     const post = posts[slug]
