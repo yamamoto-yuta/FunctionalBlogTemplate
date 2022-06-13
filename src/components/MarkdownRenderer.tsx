@@ -33,11 +33,12 @@ import remarkBreaks from 'remark-breaks'
 import rehypeRaw from 'rehype-raw'
 import remarkMath from 'remark-math'
 import remarkHtmlKatex from 'remark-html-katex'
+import 'highlight.js/styles/github-dark-dimmed.css';
+import { InlineCode } from './InlineCode'
 
 type Props = { children: string }
 
 export const MarkdownRenderer: React.FC<Props> = ({ children }) => {
-  children = children.replace(/^\n\n/gm, '<br />\n\n')
   return (
     <div>
       <Head>
@@ -219,21 +220,15 @@ const Heading6: Components['h6'] = ({ level, node, ...props }) => {
 }
 
 const MdCode: Components['code'] = ({ node, ...props }) => {
-    return <div/>
-//   if (
-//     typeof node.position?.end.line === 'number' &&
-//     typeof node.position?.start.line === 'number'
-//   ) {
-//     if (node.position?.end.line - node.position?.start.line > 5) {
-//       return SyntaxHighlight(node, true)
-//     } else if (node.position?.end.line - node.position?.start.line > 0) {
-//       return SyntaxHighlight(node, false)
-//     } else {
-//       return InlineCode(props)
-//     }
-//   } else {
-//     return <br />
-//   }
+  if (props.inline === true){
+    return InlineCode(props)
+  } else {
+    return (
+        <Box sx={{overflowY: 'auto', maxHeight: 400}}>
+          <code {...props} />
+        </Box>
+        )
+  }
 }
 
 const Paragraph: Components['p'] = ({ node, ...props }) => {
