@@ -15,6 +15,9 @@ export type Article = {
 
 const postsDirectory = path.join(process.cwd(), 'contents', 'articles')
 
+/**
+ * return all article slugs
+ */
 export const getArticleSlugs = () => {
   try {
     const allDirents = fs.readdirSync(postsDirectory, { withFileTypes: true })
@@ -27,6 +30,11 @@ export const getArticleSlugs = () => {
   }
 }
 
+/**
+ * return an Article with selected fields specified by slug.
+ * @param slug slug to specify article
+ * @param fields fields to get
+ */
 export const getArticleBySlug = (slug: string, fields: string[] = []) => {
   const fullPath = path.join(postsDirectory, slug, 'index.md')
   const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -73,7 +81,7 @@ export const getArticleBySlug = (slug: string, fields: string[] = []) => {
 }
 
 /**
- * return all posts with selected fields
+ * return all posts with selected fields.
  * @param fields fields to get
  */
 export function getAllArticles(fields: string[] = []) {
