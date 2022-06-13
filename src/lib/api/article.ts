@@ -69,7 +69,7 @@ export const getArticleBySlug = (slug: string, fields: string[] = []) => {
 }
 
 /**
- * return selected fields of all posts
+ * return all posts with selected fields
  * @param fields fields to get
  */
 export function getAllArticles(fields: string[] = []) {
