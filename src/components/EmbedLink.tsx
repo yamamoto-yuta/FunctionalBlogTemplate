@@ -17,8 +17,8 @@ export const EmbedLink = ({ url }: { url: string }) => {
   } else {
     // Other Links
     return (
-    //   <CardLink url={url} />
-    <div/>
+      //   <CardLink url={url} />
+      <div />
     )
   }
 }

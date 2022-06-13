@@ -20,26 +20,38 @@ const Post: NextPage<Props> = ({
 }) => {
   return (
     <div>
-    <Head>
-      <title>{`${post.title} | ${config.blog_title}`}</title>
-      <meta name="description" content={`${post.description}`} />
-      <link rel="icon" href={`${config.root_url}/static/favicon.ico`} />
-      <meta property='og:title' content={`${post.title} | ${config.blog_title}`}/>
-      <meta property='og:description' content={post.description}/>
-        <meta property="og:image" content={`${config.root_url}/static/images/thumbnail/${post.slug}.jpg`} />
-        <meta property="og:type" content="article"/>
-        <meta property="og:site_name" content={config.blog_title}/>
-        <meta property="og:url" content={`${config.root_url}/article/${post.slug}`}/>
-        <meta name="twitter:image" content={`${config.root_url}/static/images/thumbnail/${post.slug}.jpg`} />
+      <Head>
+        <title>{`${post.title} | ${config.blog_title}`}</title>
+        <meta name="description" content={`${post.description}`} />
+        <link rel="icon" href={`${config.root_url}/static/favicon.ico`} />
+        <meta
+          property="og:title"
+          content={`${post.title} | ${config.blog_title}`}
+        />
+        <meta property="og:description" content={post.description} />
+        <meta
+          property="og:image"
+          content={`${config.root_url}/static/images/thumbnail/${post.slug}.jpg`}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content={config.blog_title} />
+        <meta
+          property="og:url"
+          content={`${config.root_url}/article/${post.slug}`}
+        />
+        <meta
+          name="twitter:image"
+          content={`${config.root_url}/static/images/thumbnail/${post.slug}.jpg`}
+        />
         <meta name="twitter:card" content="summary_large_image" />
-    </Head>
-    <main>
-      <ArticlePage config={config} post={post}/>
-    </main>
-    <footer>
-      <Copyright config={config} />
-    </footer>
-  </div>
+      </Head>
+      <main>
+        <ArticlePage config={config} post={post} />
+      </main>
+      <footer>
+        <Copyright config={config} />
+      </footer>
+    </div>
   )
 }
 

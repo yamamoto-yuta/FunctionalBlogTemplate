@@ -33,7 +33,7 @@ import remarkBreaks from 'remark-breaks'
 import rehypeRaw from 'rehype-raw'
 import remarkMath from 'remark-math'
 import remarkHtmlKatex from 'remark-html-katex'
-import 'highlight.js/styles/github-dark-dimmed.css';
+import 'highlight.js/styles/github-dark-dimmed.css'
 import { InlineCode } from './InlineCode'
 
 type Props = { children: string }
@@ -81,29 +81,26 @@ export const MarkdownRenderer: React.FC<Props> = ({ children }) => {
   )
 }
 
-const MdLink: Components['a'] = ({ node, href, ...props }) => {  
-  if (href!==undefined){
+const MdLink: Components['a'] = ({ node, href, ...props }) => {
+  if (href !== undefined) {
     let title = href
-      if (typeof props.children[0] === 'string') {
-        title = props.children[0]
-      }
-    if (
-      href?.startsWith('#') ||
-      href?.startsWith('/')
-    ) {
-    return (
-            <Link href={href} >
-                <a>{title}</a>
-            </Link>
-        )
+    if (typeof props.children[0] === 'string') {
+      title = props.children[0]
+    }
+    if (href?.startsWith('#') || href?.startsWith('/')) {
+      return (
+        <Link href={href}>
+          <a>{title}</a>
+        </Link>
+      )
     }
     return (
       <a href={href} target="_blank" rel="noopener noreferrer">
         {title}
       </a>
-      )
-    }
-  return <div/>
+    )
+  }
+  return <div />
 }
 
 const Heading = ({
@@ -134,14 +131,14 @@ const Heading = ({
         <Grid item xs={0.5} />
         <Grid item xs={1.5}>
           <Link href={`#${text}`} passHref>
-              <MuiLink
-                underline="hover"
-                variant={level}
-                color="secondary.main"
-                sx={{ p: 0 }}
-              >
-                {prefix}
-              </MuiLink>
+            <MuiLink
+              underline="hover"
+              variant={level}
+              color="secondary.main"
+              sx={{ p: 0 }}
+            >
+              {prefix}
+            </MuiLink>
           </Link>
         </Grid>
         <Grid item xs={10}>
@@ -160,7 +157,9 @@ const Heading = ({
 }
 
 const Heading1: Components['h1'] = ({ level, node, ...props }) => {
-  if (props.children===undefined){ return (<div/>) }
+  if (props.children === undefined) {
+    return <div />
+  }
   const text = props.children.toString()
   return (
     <h1 id={text}>
@@ -170,7 +169,9 @@ const Heading1: Components['h1'] = ({ level, node, ...props }) => {
 }
 
 const Heading2: Components['h2'] = ({ level, node, ...props }) => {
-  if (props.children===undefined){ return (<div/>) }
+  if (props.children === undefined) {
+    return <div />
+  }
   let text = props.children.toString()
   text = text === 'Footnotes' ? '脚注' : text
   return (
@@ -181,7 +182,9 @@ const Heading2: Components['h2'] = ({ level, node, ...props }) => {
 }
 
 const Heading3: Components['h3'] = ({ level, node, ...props }) => {
-  if (props.children===undefined){ return (<div/>) }
+  if (props.children === undefined) {
+    return <div />
+  }
   const text = props.children.toString()
   return (
     <h3 id={text}>
@@ -191,7 +194,9 @@ const Heading3: Components['h3'] = ({ level, node, ...props }) => {
 }
 
 const Heading4: Components['h4'] = ({ level, node, ...props }) => {
-  if (props.children===undefined){ return (<div/>) }
+  if (props.children === undefined) {
+    return <div />
+  }
   const text = props.children.toString()
   return (
     <h4 id={text}>
@@ -201,7 +206,9 @@ const Heading4: Components['h4'] = ({ level, node, ...props }) => {
 }
 
 const Heading5: Components['h5'] = ({ level, node, ...props }) => {
-  if (props.children===undefined){ return (<div/>) }
+  if (props.children === undefined) {
+    return <div />
+  }
   const text = props.children.toString()
   return (
     <h5 id={text}>
@@ -210,7 +217,9 @@ const Heading5: Components['h5'] = ({ level, node, ...props }) => {
   )
 }
 const Heading6: Components['h6'] = ({ level, node, ...props }) => {
-  if (props.children===undefined){ return (<div/>) }
+  if (props.children === undefined) {
+    return <div />
+  }
   const text = props.children.toString()
   return (
     <h6 id={text}>
@@ -220,14 +229,14 @@ const Heading6: Components['h6'] = ({ level, node, ...props }) => {
 }
 
 const MdCode: Components['code'] = ({ node, ...props }) => {
-  if (props.inline === true){
+  if (props.inline === true) {
     return InlineCode(props)
   } else {
     return (
-        <Box sx={{overflowY: 'auto', maxHeight: 400}}>
-          <code {...props} />
-        </Box>
-        )
+      <Box sx={{ overflowY: 'auto', maxHeight: 400 }}>
+        <code {...props} />
+      </Box>
+    )
   }
 }
 
@@ -245,7 +254,7 @@ const Paragraph: Components['p'] = ({ node, ...props }) => {
   }
   if (
     node.children.length === 0 &&
-    node.properties != null && 
+    node.properties != null &&
     typeof node.properties.basepath === 'string' &&
     typeof node.properties.slug === 'string'
   ) {
@@ -253,14 +262,14 @@ const Paragraph: Components['p'] = ({ node, ...props }) => {
     const basePath = node.properties.basepath
     return (
       <Grid container>
-        <Grid item xs={0} sm={2.5}/>
+        <Grid item xs={0} sm={2.5} />
         <Grid item xs={0} sm={7}>
-          <Box sx={{m: 1}}>
+          <Box sx={{ m: 1 }}>
             {/* <PostCardBySlug slug={slug} url_subpath={basePath}/> */}
-            <div/>
+            <div />
           </Box>
         </Grid>
-        <Grid item xs={0} sm={2.5}/>
+        <Grid item xs={0} sm={2.5} />
       </Grid>
     )
   }
@@ -269,8 +278,8 @@ const Paragraph: Components['p'] = ({ node, ...props }) => {
 
 const Blockquote: Components['blockquote'] = ({ node, ...props }) => {
   let bgColor = ''
-  if (theme.palette.mode === 'light'){
-    bgColor = '#efefefef'    
+  if (theme.palette.mode === 'light') {
+    bgColor = '#efefefef'
   } else if (theme.palette.mode === 'dark') {
     bgColor = '#303030'
   }
@@ -332,13 +341,19 @@ const MdImage: Components['img'] = ({ node, ...props }) => {
     const splited_url = img_url.split('.webphttp')
     if (splited_url.length === 2) {
       img_path = splited_url[0].concat('.webp')
-      img_url = "http".concat(splited_url[1])
+      img_url = 'http'.concat(splited_url[1])
     }
     return (
       <Grid container>
-        <Grid item xs={0} sm={1}/>
+        <Grid item xs={0} sm={1} />
         <Grid item xs={12} sm={10}>
-          <Button href={img_url} aria-label={node.properties.alt} target="_blank" rel="noopener" sx={{width: '100%'}}>
+          <Button
+            href={img_url}
+            aria-label={node.properties.alt}
+            target="_blank"
+            rel="noopener"
+            sx={{ width: '100%' }}
+          >
             <CardMedia
               component="img"
               image={img_path}
@@ -346,7 +361,7 @@ const MdImage: Components['img'] = ({ node, ...props }) => {
             />
           </Button>
         </Grid>
-        <Grid item xs={0} sm={1}/>
+        <Grid item xs={0} sm={1} />
       </Grid>
     )
   } else {
