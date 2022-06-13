@@ -43,6 +43,7 @@ export const getArticleBySlug = (slug: string, fields: string[] = []) => {
       description: '',
     }
   
+    const tagsDict = getTagsJson()
     fields.forEach((field) => {
       if (field === 'slug') {
         items[field] = slug
@@ -52,7 +53,6 @@ export const getArticleBySlug = (slug: string, fields: string[] = []) => {
       }
       if (field === 'tags') {
         const tag_ids = data['tag_ids']
-        const tagsDict = getTagsJson()
         items[field] = tag_ids.map((tag_id: string) => {
           return tagsDict[tag_id]
         })
