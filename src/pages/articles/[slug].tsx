@@ -1,23 +1,32 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
+import { useContext } from 'react'
 import Copyright from '../../components/Copylight'
 import { ArticlePage } from '../../components/pages/ArticlePage'
 import {
   Article,
+  articlesListToMap,
+  ArticlesMap,
+  extractArticleLink,
   getAllArticles,
   getArticleBySlug,
 } from '../../lib/api/article'
 import { ConfigJson, getConfigJson } from '../../lib/api/config'
+import { ArticlesContext } from '../_app'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 const Post: NextPage<Props> = ({
   post,
   config,
+  postsMap,
 }: {
   post: Article
   config: ConfigJson
+  postsMap: ArticlesMap
 }) => {
+  const { setPosts } = useContext(ArticlesContext)
+  setPosts(postsMap)
   return (
     <div>
       <Head>
@@ -81,15 +90,17 @@ export const getStaticProps = async ({ params }: any) => {
   ])
   const config = getConfigJson()
   //const metadata = getResourcesJson()
-  const allPosts = getAllArticles(['slug', 'title', 'posted_at', 'tags'])
-  // const posts = postsToMap(allPosts)
+  const slugs: string[] = extractArticleLink(post.content)
+  const postsMap = articlesListToMap(
+    getAllArticles(['slug', 'title', 'posted_at', 'tags']).filter(post => slugs.includes(post.slug))
+  )
   // const relatedSlugs = getRelatedJson()[post.slug]
   // const relatedPosts = relatedSlugs.map((slug) => {return posts[slug]})
   return {
     props: {
       post,
       config,
-      // posts,
+      postsMap,
       // metadata,
       // relatedPosts,
     },

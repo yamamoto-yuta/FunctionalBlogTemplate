@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import {
@@ -35,6 +35,8 @@ import remarkMath from 'remark-math'
 import remarkHtmlKatex from 'remark-html-katex'
 import 'highlight.js/styles/github-dark-dimmed.css'
 import { InlineCode } from './InlineCode'
+import { PostCard } from './PostCard'
+import { ArticlesContext } from '../pages/_app'
 
 type Props = { children: string }
 
@@ -253,23 +255,21 @@ const Paragraph: Components['p'] = ({ node, ...props }) => {
     return <EmbedLink url={child.properties.href} />
   }
   if (
-    node.children.length === 0 &&
-    node.properties != null &&
-    typeof node.properties.basepath === 'string' &&
-    typeof node.properties.slug === 'string'
+    child.type === 'text' &&
+    /^#\d+\s*$/.test(child.value)
   ) {
-    const slug = node.properties.slug
-    const basePath = node.properties.basepath
+    const slug = child.value.replace('#', '').replace(/\s/g, '')
+    const { posts } = useContext(ArticlesContext)
+    const post = posts[slug]
     return (
       <Grid container>
-        <Grid item xs={0} sm={2.5} />
-        <Grid item xs={0} sm={7}>
+        <Grid item xs={0} sm={1.5} />
+        <Grid item xs={0} sm={9}>
           <Box sx={{ m: 1 }}>
-            {/* <PostCardBySlug slug={slug} url_subpath={basePath}/> */}
-            <div />
+            <PostCard {...post} />
           </Box>
         </Grid>
-        <Grid item xs={0} sm={2.5} />
+        <Grid item xs={0} sm={1.5} />
       </Grid>
     )
   }

@@ -13,6 +13,15 @@ export type Article = {
   description: string
 }
 
+export type ArticlesMap = {
+    [slug: string]: {
+      slug: string
+      title: string
+      tags: Tag[]
+      posted_at: string
+    }
+  }
+    
 const postsDirectory = path.join(process.cwd(), 'contents', 'articles')
 
 /**
@@ -84,10 +93,37 @@ export const getArticleBySlug = (slug: string, fields: string[] = []) => {
  * return all posts with selected fields.
  * @param fields fields to get
  */
-export function getAllArticles(fields: string[] = []) {
+export const getAllArticles = (fields: string[] = []) => {
   const slugs = getArticleSlugs()
   const posts = slugs
     .map((slug) => getArticleBySlug(slug, fields))
     .sort((a, b) => (a.posted_at > b.posted_at ? -1 : 1))
   return posts
+}
+
+/**
+ * convert Article[] into ArticlesMap.
+ * @param posts Article[] to convert
+ */
+export const articlesListToMap = (posts: Article[]) => {
+    const postsMap: ArticlesMap = Object.create(null)
+    posts.forEach((post, i) => {
+      postsMap[post.slug] = {
+        slug: post.slug,
+        title: post.title,
+        tags: post.tags,
+        posted_at: post.posted_at,
+      }
+    })
+    return postsMap
+}
+
+/**
+ * extract article link (e.g. #1 ) from text.
+ * @param text some text
+ */
+export const extractArticleLink = (text: string) => {
+    const articleLinkPattern = /^#(\d+)\s*$/gm
+    const slugs: string[] = [...text.matchAll(articleLinkPattern)].map(match => {return match[1]})
+    return slugs
 }
