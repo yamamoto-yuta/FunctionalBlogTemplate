@@ -37,6 +37,7 @@ import remarkHtmlKatex from 'remark-html-katex'
 type Props = { children: string }
 
 export const MarkdownRenderer: React.FC<Props> = ({ children }) => {
+  children = children.replace(/^\n\n/gm, '<br />\n\n')
   return (
     <div>
       <Head>

@@ -5,7 +5,7 @@ import { MarkdownRenderer } from "../MarkdownRenderer"
 
 export const ArticlePage = ({config, post}: {config: ConfigJson, post: Article}) => {
     return (
-        <Container>
+        <Container maxWidth="sm">
           <MarkdownRenderer>{post.content}</MarkdownRenderer>
         </Container>
     )
