@@ -35,6 +35,7 @@ import rehypeRaw from 'rehype-raw'
 import remarkMath from 'remark-math'
 import remarkHtmlKatex from 'remark-html-katex'
 import 'highlight.js/styles/github-dark-dimmed.css'
+import { TextLink } from './Link'
 
 type Props = { children: string }
 
@@ -82,23 +83,13 @@ export const MarkdownRenderer: React.FC<Props> = ({ children }) => {
 }
 
 const MdLink: Components['a'] = ({ node, href, ...props }) => {
+  
   if (href !== undefined) {
     let title = href
     if (typeof props.children[0] === 'string') {
       title = props.children[0]
     }
-    if (href?.startsWith('#') || href?.startsWith('/')) {
-      return (
-        <Link href={href}>
-          <a>{title}</a>
-        </Link>
-      )
-    }
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer">
-        {title}
-      </a>
-    )
+    return <TextLink href={href} alt={title}/>
   }
   return <div />
 }

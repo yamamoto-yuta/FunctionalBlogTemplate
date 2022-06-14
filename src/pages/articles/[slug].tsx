@@ -1,3 +1,4 @@
+import { Container } from '@mui/material'
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
 import { useContext } from 'react'
@@ -55,7 +56,9 @@ const Post: NextPage<Props> = ({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <main>
-        <ArticlePage config={config} post={post} />
+        <Container maxWidth="md">
+          <ArticlePage config={config} post={post} />
+        </Container>
       </main>
       <footer>
         <Copyright config={config} />

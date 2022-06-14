@@ -2,7 +2,7 @@ import { createTheme } from '@mui/material/styles'
 import { red } from '@mui/material/colors'
 
 // Create a theme instance.
-const mode = 'light'
+const mode = 'dark'
 const theme = createTheme({
   palette: {
     mode: mode,
@@ -10,7 +10,7 @@ const theme = createTheme({
       main: red.A400,
     },
     background: {
-      default: { light: '#F0ECE0', dark: '#0B0E14' }[mode],
+      default: { light: '#eeeeee', dark: '#0B0E14' }[mode],
       paper: { light: '#ffffff', dark: '#141924' }[mode],
     },
   },
