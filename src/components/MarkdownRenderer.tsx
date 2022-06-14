@@ -21,8 +21,9 @@ import FormatQuoteIcon from '@mui/icons-material/FormatQuote'
 
 import theme from '../lib/theme'
 import { EmbedLink } from './EmbedLink'
-// import { InlineCode, SyntaxHighlight } from './SyntaxHighlight'
-// import { PostCardBySlug } from './PostCard'
+import { InlineCode } from './InlineCode'
+import { PostCard } from './PostCard'
+import { ArticlesContext } from '../pages/_app'
 
 // react-markdown
 import ReactMarkdown, { Components } from 'react-markdown'
@@ -34,9 +35,6 @@ import rehypeRaw from 'rehype-raw'
 import remarkMath from 'remark-math'
 import remarkHtmlKatex from 'remark-html-katex'
 import 'highlight.js/styles/github-dark-dimmed.css'
-import { InlineCode } from './InlineCode'
-import { PostCard } from './PostCard'
-import { ArticlesContext } from '../pages/_app'
 
 type Props = { children: string }
 
@@ -338,8 +336,8 @@ const MdImage: Components['img'] = ({ node, ...props }) => {
     let img_url = node.properties.src
     const splited_url = img_url.split('.webphttp')
     if (splited_url.length === 2) {
-      img_path = splited_url[0].concat('.webp')
-      img_url = 'http'.concat(splited_url[1])
+      img_path = `${splited_url[0]}.webp`
+      img_url = `http${splited_url[1]}`
     }
     return (
       <Grid container>
