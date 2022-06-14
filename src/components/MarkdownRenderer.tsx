@@ -284,7 +284,7 @@ const Blockquote: Components['blockquote'] = ({ node, ...props }) => {
     bgColor = '#303030'
   }
   return (
-    <Grid container sx={{ mt: '2rem' }}>
+    <Grid container sx={{ mt: '1rem', mb: '1rem' }}>
       <Grid item xs={1} />
       <Grid item xs={10}>
         <Card style={{ backgroundColor: bgColor }}>
