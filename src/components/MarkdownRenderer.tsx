@@ -258,6 +258,9 @@ const Paragraph: Components['p'] = ({ node, ...props }) => {
     const slug = child.value.replace('#', '').replace(/\s/g, '')
     const { posts } = useContext(ArticlesContext)
     const post = posts[slug]
+    if (post === undefined) {
+      return <div />
+    }
     return (
       <Grid container>
         <Grid item xs={0} sm={1.5} />
