@@ -33,7 +33,7 @@ export const ExternalLink = ({href, alt}: {href: string, alt: string}) => {
 }
 
 export const TextLink = ({href, alt}: {href: string, alt: string}) => {
-    const thisSiteUrl = new RegExp(`https?://${domainPath}`, 'g')
+    const thisSiteUrl = new RegExp(`https?://${domainPath}`)
     if (
         href.startsWith('#') ||
         href.startsWith('/') ||
