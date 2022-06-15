@@ -5,7 +5,6 @@ import { Dispatch, SetStateAction, useContext, useState } from "react"
 import { ArticlePage } from "../components/pages/ArticlePage"
 import { Article, articlesListToMap, ArticlesMap, getAllArticles } from "../lib/api/article"
 import { ConfigJson, getConfigJson } from "../lib/api/config"
-import { getNow } from "../lib/datetime"
 import { ArticlesContext } from "./_app"
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
