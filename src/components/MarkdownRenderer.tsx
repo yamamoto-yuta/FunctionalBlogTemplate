@@ -86,7 +86,10 @@ const MdLink: Components['a'] = ({ node, href, ...props }) => {
   
   if (href !== undefined) {
     let title = href
-    if (typeof props.children[0] === 'string') {
+    if (
+      props.children !== undefined &&
+      typeof props.children[0] === 'string'
+      ) {
       title = props.children[0]
     }
     return <TextLink href={href} alt={title}/>
@@ -238,6 +241,8 @@ const Paragraph: Components['p'] = ({ node, ...props }) => {
     child.type === 'element' &&
     child.tagName === 'a' &&
     typeof child.properties?.href === 'string' &&
+    child.children !== undefined &&
+    child.children[0] !== undefined &&
     child.children[0].type === 'text' &&
     child.properties.href === child.children[0].value
   ) {
