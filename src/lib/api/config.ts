@@ -9,7 +9,7 @@ export type ConfigJson = {
   root_url: string
   url_domain: string
   url_subpath: string
-  issues_edit_page: string
+  issues_page_url: string
   author_name: string | undefined
   author_introduction: string | undefined
   avatar_image_url: string | undefined
@@ -37,7 +37,7 @@ export const getConfigJson = () => {
       root_url: '',
       url_domain: '',
       url_subpath: '',
-      issues_edit_page: '',
+      issues_page_url: '',
       author_name: 'author_name',
       author_introduction: 'author_introduction',
       avatar_image_url: '',

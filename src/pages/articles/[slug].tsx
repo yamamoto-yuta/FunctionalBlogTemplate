@@ -1,6 +1,8 @@
 import { Container } from '@mui/material'
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
+import ErrorPage from 'next/error'
+import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import Copyright from '../../components/Copylight'
 import { ArticlePage } from '../../components/pages/ArticlePage'
@@ -14,6 +16,7 @@ import {
 } from '../../lib/api/article'
 import { ConfigJson, getConfigJson } from '../../lib/api/config'
 import { ArticlesContext } from '../_app'
+import { getNow } from '../../lib/datetime'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -28,6 +31,17 @@ const Post: NextPage<Props> = ({
 }) => {
   const { setPosts } = useContext(ArticlesContext)
   setPosts(postsMap)
+  const router = useRouter()
+  if (!router.isFallback && !post?.slug) {
+    return <ErrorPage statusCode={404} />
+  }
+  const now = getNow()
+  if (post?.posted_at > now) {
+    return <ErrorPage statusCode={404} />
+  }
+  if (post.description === ''){
+    post.description = `${config.author_name}の記事です。`
+  }
   return (
     <div>
       <Head>
