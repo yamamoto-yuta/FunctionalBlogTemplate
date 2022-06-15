@@ -83,16 +83,12 @@ export const MarkdownRenderer: React.FC<Props> = ({ children }) => {
 }
 
 const MdLink: Components['a'] = ({ node, href, ...props }) => {
-  
   if (href !== undefined) {
     let title = href
-    if (
-      props.children !== undefined &&
-      typeof props.children[0] === 'string'
-      ) {
+    if (props.children !== undefined && typeof props.children[0] === 'string') {
       title = props.children[0]
     }
-    return <TextLink href={href} alt={title}/>
+    return <TextLink href={href} alt={title} />
   }
   return <div />
 }
@@ -259,7 +255,7 @@ const Paragraph: Components['p'] = ({ node, ...props }) => {
       <Grid container>
         <Grid item xs={0} sm={2} />
         <Grid item xs={0} sm={8}>
-            <PostCard {...post} />
+          <PostCard {...post} />
         </Grid>
         <Grid item xs={0} sm={2} />
       </Grid>

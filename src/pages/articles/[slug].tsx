@@ -39,7 +39,7 @@ const Post: NextPage<Props> = ({
   if (post?.posted_at > now) {
     return <ErrorPage statusCode={404} />
   }
-  if (post.description === ''){
+  if (post.description === '') {
     post.description = `${config.author_name}の記事です。`
   }
   return (
