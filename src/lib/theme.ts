@@ -2,7 +2,7 @@ import { createTheme } from '@mui/material/styles'
 import { red } from '@mui/material/colors'
 
 // Create a theme instance.
-const mode = 'dark'
+const mode = 'light'
 const theme = createTheme({
   palette: {
     mode: mode,
