@@ -79,7 +79,7 @@ const Preview: NextPage<Props> = ({ config, postsMap }: { config: ConfigJson, po
     const { setPosts } = useContext(ArticlesContext)
     setPosts(postsMap)
     const [pageType, setPageType] = useState('article')
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState('## preview article\nedit here!')
     const object = valueToObject(pageType, value)
     return (
         <div>
