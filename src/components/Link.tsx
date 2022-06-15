@@ -1,9 +1,9 @@
 import Link from "next/link"
+import { css } from '@emotion/react'
 import { domainPath } from "../lib/consts"
-import styled from 'styled-components'
 import theme from "../lib/theme"
 
-const Atag = styled.a`
+const linkStyle = css`
   color: ${theme.palette.primary.main};
   &:hover {
       color: ${theme.palette.primary.dark};
@@ -19,16 +19,16 @@ const Atag = styled.a`
 export const InternalLink = ({href, alt}: {href: string, alt: string}) => {
     return (
       <Link href={href} passHref>
-        <Atag>{alt}</Atag>
+        <a css={linkStyle}>{alt}</a>
       </Link>
     )
 }
 
 export const ExternalLink = ({href, alt}: {href: string, alt: string}) => {
     return (
-      <Atag href={href} target="_blank" rel="noopener noreferrer">
+      <a css={linkStyle} href={href} target="_blank" rel="noopener noreferrer">
         {alt}
-      </Atag>
+      </a>
     )
 }
 
