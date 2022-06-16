@@ -34,7 +34,7 @@ export const PostCard = ({
       variant="outlined"
       sx={{ width: '98%', m: 0, p: 0, borderRadius: '12px' }}
     >
-      <Link href={`/article/${slug}`} passHref>
+      <Link href={`/articles/${slug}`} passHref>
         <Button
           sx={{
             width: '100%',
