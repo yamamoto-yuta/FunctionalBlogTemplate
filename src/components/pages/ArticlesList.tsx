@@ -39,7 +39,7 @@ export const ArticlesList = ({ config, years, router, posts }: { config: ConfigJ
     const page: string | undefined = getPage(router)
     const tag: string | undefined = getTag(router)
 
-    const handleChangeSelect = (event: SelectChangeEvent) => {
+    const handleChangeSelectYear = (event: SelectChangeEvent) => {
         let query: {[key: string]: string} = {}
         query.year = event.target.value
         if (typeof page === 'string') {
@@ -67,8 +67,8 @@ export const ArticlesList = ({ config, years, router, posts }: { config: ConfigJ
             query: query
           });
     }
-    const yearQuery = year? `year=${year}`: undefined
-    const tagQuery = tag? `tag=${tag}`: undefined
+    const yearQuery = year? `year='${year}'`: undefined
+    const tagQuery = tag? `tag='${tag}'`: undefined
     const queriesText = (yearQuery || tagQuery)? `(${yearQuery? yearQuery: ''}${(yearQuery && tagQuery)? ' ': ''}${tagQuery? tagQuery: ''})`: undefined
     return (
         <div id="paginationAnchor">
@@ -76,7 +76,7 @@ export const ArticlesList = ({ config, years, router, posts }: { config: ConfigJ
                 Articles List {queriesText}
             </Typography>
             <Box sx={{m: '3rem'}} />
-            <YearSelector year={year} years={years} handleChange={handleChangeSelect}/>
+            <YearSelector year={year} years={years} handleChange={handleChangeSelectYear}/>
             <Box sx={{m: '2rem'}} />
             <Pagination pageNum={pageNum} page={page} handleChange={handleChangePagination} />
             <PostCards

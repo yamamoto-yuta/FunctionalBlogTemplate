@@ -28,7 +28,6 @@ const Posts: NextPage<Props> = ({
   selectedTag = selectedTag? selectedTag: ''
 
   const now: string = getNow()
-  console.log(posts)
   posts = posts
   .filter((post) => post.posted_at <= now)
   .filter((post) => post.posted_at.slice(0,4) === selectedYear || selectedYear === 'all')
