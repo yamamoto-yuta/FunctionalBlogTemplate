@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Copyright from '../components/Copylight'
-import { ArticlesList, getPage, getYear } from '../components/pages/ArticlesList'
+import { ArticlesList, getPage, getTag, getYear } from '../components/pages/ArticlesList'
 import { Article, getAllArticles } from '../lib/api/article'
 import { ConfigJson, getConfigJson } from '../lib/api/config'
 import { getNow } from '../lib/datetime'
@@ -21,13 +21,18 @@ const Posts: NextPage<Props> = ({
   years: string[]
 }) => {
   const router = useRouter()
-  let year = getYear(router)
-  year = year? year: 'all'
+  let selectedYear = getYear(router)
+  selectedYear = selectedYear? selectedYear: 'all'
+
+  let selectedTag = getTag(router)
+  selectedTag = selectedTag? selectedTag: ''
 
   const now: string = getNow()
+  console.log(posts)
   posts = posts
   .filter((post) => post.posted_at <= now)
-  .filter((post) => post.posted_at.slice(0,4) === year || year === 'all')
+  .filter((post) => post.posted_at.slice(0,4) === selectedYear || selectedYear === 'all')
+  .filter((post) => post.tags.some((tag) => tag.name === selectedTag) || selectedTag === '')
   return (
     <div>
       <Head>

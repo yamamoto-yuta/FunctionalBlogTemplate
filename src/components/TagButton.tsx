@@ -28,7 +28,7 @@ const tagColorGenerate = (themeHex: string, mode: 'light' | 'dark') => {
 export const TagButton = ({ tag }: { tag: Tag }) => {
   const tagColor = tagColorGenerate(tag.color, theme.palette.mode)
   return (
-    <Link href={`/article/tags/${tag.name}`} passHref>
+    <Link href={`/articles?tag=${tag.name}`} passHref>
       <Button
         variant="outlined"
         size="small"
