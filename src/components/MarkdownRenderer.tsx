@@ -232,6 +232,7 @@ const MdCode: Components['code'] = ({ node, ...props }) => {
 
 const Paragraph: Components['p'] = ({ node, ...props }) => {
   const child = node.children[0]
+  const { posts } = useContext(ArticlesContext)
   if (
     node.children.length === 1 &&
     child.type === 'element' &&
@@ -246,7 +247,6 @@ const Paragraph: Components['p'] = ({ node, ...props }) => {
   }
   if (child.type === 'text' && /^#\d+\s*$/.test(child.value)) {
     const slug = child.value.replace('#', '').replace(/\s/g, '')
-    const { posts } = useContext(ArticlesContext)
     const post = posts[slug]
     if (post === undefined) {
       return <div />
