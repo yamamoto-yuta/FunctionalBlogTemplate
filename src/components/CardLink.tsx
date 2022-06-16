@@ -15,7 +15,7 @@ export const CardLink = ({ url }: { url: string }) => {
   if (metadata[url] === undefined) {
     return (
       <Link href={url} target="_blank" rel="noopener">
-        外部サイト
+        {url}
       </Link>
     )
   }
@@ -25,7 +25,7 @@ export const CardLink = ({ url }: { url: string }) => {
   if (title === undefined) {
     return (
       <Link href={url} target="_blank" rel="noopener">
-        外部サイト
+        {url}
       </Link>
     )
   }
