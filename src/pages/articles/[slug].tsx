@@ -17,7 +17,10 @@ import {
 import { ConfigJson, getConfigJson } from '../../lib/api/config'
 import { ArticlesContext, ExternalMetadataContext } from '../_app'
 import { getNow } from '../../lib/datetime'
-import { ExternalMetadata, getExternalMetadataJson } from '../../lib/api/externalMetadata'
+import {
+  ExternalMetadata,
+  getExternalMetadataJson,
+} from '../../lib/api/externalMetadata'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 

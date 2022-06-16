@@ -16,9 +16,7 @@ export const EmbedLink = ({ url }: { url: string }) => {
     return <YoutubeEmbed url={url} />
   } else {
     // Other Links
-    return (
-        <CardLink url={url} />
-    )
+    return <CardLink url={url} />
   }
 }
 

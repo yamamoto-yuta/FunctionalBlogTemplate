@@ -4,7 +4,12 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Copyright from '../components/Copylight'
-import { ArticlesList, getPage, getTag, getYear } from '../components/pages/ArticlesList'
+import {
+  ArticlesList,
+  getPage,
+  getTag,
+  getYear,
+} from '../components/pages/ArticlesList'
 import { Article, getAllArticles } from '../lib/api/article'
 import { ConfigJson, getConfigJson } from '../lib/api/config'
 import { getNow } from '../lib/datetime'
@@ -22,16 +27,22 @@ const Posts: NextPage<Props> = ({
 }) => {
   const router = useRouter()
   let selectedYear = getYear(router)
-  selectedYear = selectedYear? selectedYear: 'all'
+  selectedYear = selectedYear ? selectedYear : 'all'
 
   let selectedTag = getTag(router)
-  selectedTag = selectedTag? selectedTag: ''
+  selectedTag = selectedTag ? selectedTag : ''
 
   const now: string = getNow()
   posts = posts
-  .filter((post) => post.posted_at <= now)
-  .filter((post) => post.posted_at.slice(0,4) === selectedYear || selectedYear === 'all')
-  .filter((post) => post.tags.some((tag) => tag.name === selectedTag) || selectedTag === '')
+    .filter((post) => post.posted_at <= now)
+    .filter(
+      (post) =>
+        post.posted_at.slice(0, 4) === selectedYear || selectedYear === 'all',
+    )
+    .filter(
+      (post) =>
+        post.tags.some((tag) => tag.name === selectedTag) || selectedTag === '',
+    )
   return (
     <div>
       <Head>
@@ -44,7 +55,12 @@ const Posts: NextPage<Props> = ({
       </Head>
       <main>
         <Container maxWidth="md">
-          <ArticlesList config={config} years={years} router={router} posts={posts} />
+          <ArticlesList
+            config={config}
+            years={years}
+            router={router}
+            posts={posts}
+          />
         </Container>
       </main>
       <footer>
@@ -55,9 +71,20 @@ const Posts: NextPage<Props> = ({
 }
 
 export const getStaticProps = async () => {
-  const posts: Article[] = getAllArticles(['slug', 'title', 'posted_at', 'tags'])
+  const posts: Article[] = getAllArticles([
+    'slug',
+    'title',
+    'posted_at',
+    'tags',
+  ])
   const config: ConfigJson = getConfigJson()
-  const years: string[] = Array.from(new Set(posts.map((post)=> {return post.posted_at.slice(0,4)})).values()).sort()
+  const years: string[] = Array.from(
+    new Set(
+      posts.map((post) => {
+        return post.posted_at.slice(0, 4)
+      }),
+    ).values(),
+  ).sort()
   return {
     props: {
       posts,

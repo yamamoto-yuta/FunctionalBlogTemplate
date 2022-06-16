@@ -10,7 +10,7 @@ export const Pagination = ({
   page: string | number | undefined
   handleChange: any
 }) => {
-  page = page? Number(page): 1
+  page = page ? Number(page) : 1
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const anchor = (

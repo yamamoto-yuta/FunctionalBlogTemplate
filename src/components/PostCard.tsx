@@ -91,7 +91,7 @@ export const PostCards = ({
   page: string | number | undefined
   postNumPerPage: number
 }) => {
-  page = page? Number(page): 1
+  page = page ? Number(page) : 1
   const pageStartPost: number = (page - 1) * postNumPerPage
   const pageEndPost: number = (page - 1) * postNumPerPage + postNumPerPage
   return (

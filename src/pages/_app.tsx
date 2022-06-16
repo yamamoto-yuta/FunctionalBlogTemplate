@@ -30,7 +30,6 @@ export const ExternalMetadataContext = createContext(
   },
 )
 
-
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
   const initPosts: ArticlesMap = Object.create(null)
@@ -46,9 +45,9 @@ export default function MyApp(props: MyAppProps) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <ExternalMetadataContext.Provider value={{ metadata, setMetadata }}>
-        <ArticlesContext.Provider value={{ posts, setPosts }}>
-          <Component {...pageProps} />
-        </ArticlesContext.Provider>
+          <ArticlesContext.Provider value={{ posts, setPosts }}>
+            <Component {...pageProps} />
+          </ArticlesContext.Provider>
         </ExternalMetadataContext.Provider>
       </ThemeProvider>
     </CacheProvider>
