@@ -324,13 +324,13 @@ const MdImage: Components['img'] = ({ node, ...props }) => {
     typeof node.properties?.src === 'string' &&
     typeof node.properties?.alt === 'string'
   ) {
-    let img_path = node.properties.src
-    let img_url = node.properties.src
-    const splited_url = img_url.split('.webphttp')
-    if (splited_url.length === 2) {
-      img_path = `${splited_url[0]}.webp`
-      img_url = `http${splited_url[1]}`
+    let img_url = node.properties?.origin_url
+    if (
+      typeof img_url !== 'string'
+    ) {
+      img_url = node.properties?.src
     }
+    const img_path = node.properties?.src
     return (
       <Grid container>
         <Grid item xs={0} sm={1} />
