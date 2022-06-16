@@ -39,17 +39,17 @@ export function getAllTags() {
     tags = [...tags, ...post.tags]
   })
   // 重複するタグを消す
-  tags = tags.filter(
-    (element, index, self) =>
-      self.findIndex(
-        (e) =>
-          e.name === element.name &&
-          e.color === element.color &&
-          e.description === element.description,
-      ) === index,
-  )
-  .sort((a, b) => (a.name < b.name ? -1 : 1))
-  
+  tags = tags
+    .filter(
+      (element, index, self) =>
+        self.findIndex(
+          (e) =>
+            e.name === element.name &&
+            e.color === element.color &&
+            e.description === element.description,
+        ) === index,
+    )
+    .sort((a, b) => (a.name < b.name ? -1 : 1))
+
   return tags
 }
-

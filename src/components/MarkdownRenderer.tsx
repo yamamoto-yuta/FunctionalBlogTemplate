@@ -325,9 +325,7 @@ const MdImage: Components['img'] = ({ node, ...props }) => {
     typeof node.properties?.alt === 'string'
   ) {
     let img_url = node.properties?.origin_url
-    if (
-      typeof img_url !== 'string'
-    ) {
+    if (typeof img_url !== 'string') {
       img_url = node.properties?.src
     }
     const img_path = node.properties?.src
