@@ -1,6 +1,6 @@
 import { Link } from '@mui/material'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
-//import { CardLink } from './CardLink'
+import { CardLink } from './CardLink'
 
 export const EmbedLink = ({ url }: { url: string }) => {
   if (
@@ -17,8 +17,7 @@ export const EmbedLink = ({ url }: { url: string }) => {
   } else {
     // Other Links
     return (
-      //   <CardLink url={url} />
-      <div />
+        <CardLink url={url} />
     )
   }
 }

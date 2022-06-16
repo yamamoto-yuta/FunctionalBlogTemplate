@@ -15,8 +15,9 @@ import {
   getArticleBySlug,
 } from '../../lib/api/article'
 import { ConfigJson, getConfigJson } from '../../lib/api/config'
-import { ArticlesContext } from '../_app'
+import { ArticlesContext, ExternalMetadataContext } from '../_app'
 import { getNow } from '../../lib/datetime'
+import { ExternalMetadata, getExternalMetadataJson } from '../../lib/api/externalMetadata'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -24,13 +25,19 @@ const Post: NextPage<Props> = ({
   post,
   config,
   postsMap,
+  metadata,
 }: {
   post: Article
   config: ConfigJson
   postsMap: ArticlesMap
+  metadata: ExternalMetadata
 }) => {
   const { setPosts } = useContext(ArticlesContext)
   setPosts(postsMap)
+
+  const { setMetadata } = useContext(ExternalMetadataContext)
+  setMetadata(metadata)
+
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -106,7 +113,7 @@ export const getStaticProps = async ({ params }: any) => {
     'description',
   ])
   const config = getConfigJson()
-  //const metadata = getResourcesJson()
+  const metadata = getExternalMetadataJson()
   const slugs: string[] = extractArticleLink(post.content)
   const postsMap = articlesListToMap(
     getAllArticles(['slug', 'title', 'posted_at', 'tags']).filter((post) =>
@@ -120,7 +127,7 @@ export const getStaticProps = async ({ params }: any) => {
       post,
       config,
       postsMap,
-      // metadata,
+      metadata,
       // relatedPosts,
     },
   }

@@ -7,6 +7,7 @@ import theme from '../lib/theme'
 import createEmotionCache from '../lib/createEmotionCache'
 import { createContext, Dispatch, useState } from 'react'
 import { ArticlesMap } from '../lib/api/article'
+import { ExternalMetadata } from '../lib/api/externalMetadata'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
@@ -22,10 +23,20 @@ export const ArticlesContext = createContext(
   },
 )
 
+export const ExternalMetadataContext = createContext(
+  {} as {
+    metadata: ExternalMetadata
+    setMetadata: Dispatch<React.SetStateAction<ExternalMetadata>>
+  },
+)
+
+
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
   const initPosts: ArticlesMap = Object.create(null)
+  const initMetadata: ExternalMetadata = Object.create(null)
   const [posts, setPosts] = useState(initPosts)
+  const [metadata, setMetadata] = useState(initMetadata)
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -34,9 +45,11 @@ export default function MyApp(props: MyAppProps) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
+        <ExternalMetadataContext.Provider value={{ metadata, setMetadata }}>
         <ArticlesContext.Provider value={{ posts, setPosts }}>
           <Component {...pageProps} />
         </ArticlesContext.Provider>
+        </ExternalMetadataContext.Provider>
       </ThemeProvider>
     </CacheProvider>
   )
