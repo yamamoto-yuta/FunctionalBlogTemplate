@@ -6,7 +6,7 @@ export const RelatedArticles = ({ posts }: { posts: Article[] }) => {
   return (
     <div>
       <Divider sx={{ pt: '3rem' }}>
-        <Typography variant="h2">関連記事</Typography>
+        <Typography variant="h2">Related articles</Typography>
       </Divider>
       <PostCards posts={posts} page={1} postNumPerPage={10} />
     </div>
