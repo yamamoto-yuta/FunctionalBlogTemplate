@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import { ConfigJson } from '../../lib/api/config'
-import { FixedJson as IndexJson } from '../../lib/api/fixed/index'
+import { IndexJson } from '../../lib/api/fixed/index'
 import Link from 'next/link'
 
 export const IndexPage = ({ config, index }: { config: ConfigJson, index: IndexJson }) => {

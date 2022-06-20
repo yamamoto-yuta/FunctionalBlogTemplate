@@ -3,20 +3,22 @@ import path from 'path'
 
 // -----------
 // Edit here ! 
-export type FixedJson = {
+type FixedJson = {
     site_description: string
 }
 const fixedDefault: FixedJson = {
     site_description: ''
 }
 const fixedFileName = 'index.json'
+export type { FixedJson as IndexJson }
+export { getJson as getIndexJson }
 // -----------
 
 
 /**
  * return a index.json object.
  */
- export const getJson = () => {
+ const getJson = () => {
     const fixedDirectory = path.join(process.cwd(), 'contents', 'fixed')
     const jsonPath = path.join(fixedDirectory, fixedFileName)
   try {
@@ -28,3 +30,4 @@ const fixedFileName = 'index.json'
     return fixedDefault
   }
 }
+

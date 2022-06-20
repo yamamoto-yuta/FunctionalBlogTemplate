@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Copyright from '../components/Copylight'
 import { IndexPage } from '../components/pages/IndexPage'
 import { ConfigJson, getConfigJson } from '../lib/api/config'
-import { FixedJson as IndexJson, getJson as getIndexJson } from '../lib/api/fixed/index'
+import { IndexJson, getIndexJson } from '../lib/api/fixed/index'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
