@@ -1,3 +1,3 @@
-export const rootPath = 'https://ribboncms.github.io/RibbonCMS_sideF/'
-export const basePath = ''
+export const rootPath = 'https://ribboncms.github.io/SimpleBlogTemplate'
+export const basePath = '/SimpleBlogTemplate'
 export const domainPath = 'ribboncms.github.io'
