@@ -1,8 +1,9 @@
 import { Box, Typography } from '@mui/material'
 import { ConfigJson } from '../../lib/api/config'
+import { FixedJson as IndexJson } from '../../lib/api/fixed/index'
 import Link from 'next/link'
 
-export const IndexPage = ({ config }: { config: ConfigJson }) => {
+export const IndexPage = ({ config, index }: { config: ConfigJson, index: IndexJson }) => {
   return (
     <div>
       <Typography variant="h1" color="text.secondary" align="center">
@@ -10,7 +11,7 @@ export const IndexPage = ({ config }: { config: ConfigJson }) => {
       </Typography>
       <Box sx={{ m: '3rem' }} />
       <Typography variant="body1" align="center">
-        This is the most simple template of RibbonCMS Blog.
+        {index.site_description}
         <br />
         articles page is{' '}
         <Link href={`/articles`} passHref>
