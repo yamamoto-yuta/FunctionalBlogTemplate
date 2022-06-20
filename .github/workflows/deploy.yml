@@ -1,0 +1,46 @@
+name: Deploy to Production server
+
+on:
+  push:
+    branches: [ demo ]
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x.x
+
+      - name: Install NPM packages
+        run: npm ci
+        working-directory: ./src
+
+      - name: Build Next.js app
+        run: npm run build
+        working-directory: ./src
+        env:
+          NODE_ENV: production
+
+      - name: Export Next.js app
+        run: |
+            npm run export
+            touch ./out/.nojekyll
+        working-directory: ./src
+        env:
+          NODE_ENV: production
+
+      - name: Push to build branch
+        uses: s0/git-publish-subdir-action@master
+        env:
+          REPO: self
+          BRANCH: build
+          FOLDER: ./src/out/
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
