@@ -38,7 +38,8 @@
     "remark-gfm": "^3.0.1",
     "remark-html-katex": "^4.0.1",
     "remark-math": "^5.1.1",
-    "unified": "^10.1.2"
+    "unified": "^10.1.2",
+    "yaml": "^2.1.1"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^12.1.5",

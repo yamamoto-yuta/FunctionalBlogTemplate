@@ -12,6 +12,7 @@ import { InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
 import { Dispatch, SetStateAction, useContext, useState } from 'react'
 import { ArticlePage } from '../components/pages/ArticlePage'
+import { IndexPage } from '../components/pages/IndexPage'
 import {
   Article,
   articlesListToMap,
@@ -19,7 +20,9 @@ import {
   getAllArticles,
 } from '../lib/api/article'
 import { ConfigJson, getConfigJson } from '../lib/api/config'
+import { IndexJson } from '../lib/api/fixed'
 import { ArticlesContext } from './_app'
+import YAML from 'yaml'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -65,9 +68,15 @@ const valueToObject = (pageType: string, value: string) => {
       description: '',
     }
     return post
-  } else {
-    return undefined
+  } else if (pageType === 'index' ) {
+    try {
+      return YAML.parse(value) as IndexJson
+    } catch (err) {
+      return {site_description: ''
+      } as IndexJson
+    } 
   }
+  return undefined
 }
 
 const resetDefaultValue = (
@@ -76,14 +85,22 @@ const resetDefaultValue = (
 ) => {
   if (pageType === 'article') {
     setValue('## preview article\nedit here!')
+  } else if (pageType === 'index' ) {
+    setValue('site_description: ')
   } else {
-    setValue('else')
+    setValue('')
   }
 }
 
-const Previewed = ({ config, object }: { config: ConfigJson; object: any }) => {
+const Previewed = ({ pageType, config, object }: { pageType: string, config: ConfigJson; object: any }) => {
   if (object !== undefined) {
-    return <ArticlePage config={config} post={object} />
+    if (pageType === 'article') {
+      return <ArticlePage config={config} post={object} />
+    } else if (pageType === 'index' ) {
+      return <IndexPage config={config} index={object} />
+    } else {
+      return <div />
+    }
   } else {
     return <div />
   }
@@ -129,7 +146,7 @@ const Preview: NextPage<Props> = ({
           </Grid>
           <Grid item sm={0.2} xs={0} />
           <Grid item sm={7.6} xs={12}>
-            <Previewed config={config} object={object} />
+            <Previewed pageType={pageType} config={config} object={object} />
           </Grid>
           <Grid item sm={0.2} xs={0} />
         </Grid>

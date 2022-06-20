@@ -8,6 +8,8 @@ import createEmotionCache from '../lib/createEmotionCache'
 import { createContext, Dispatch, useState } from 'react'
 import { ArticlesMap } from '../lib/api/article'
 import { ExternalMetadata } from '../lib/api/externalMetadata'
+import { Typography } from '@mui/material'
+import { TextLink } from '../components/Link'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
@@ -30,6 +32,14 @@ export const ExternalMetadataContext = createContext(
   },
 )
 
+const TopBar = (
+  <Typography variant="body1" align="center" sx={{mt: '2rem', mb: '2rem'}}>
+    <TextLink href='/' alt='top'/> {' '}
+    <TextLink href='/articles' alt='articles'/> {' '}
+    <TextLink href='/preview' alt='preview'/>
+  </Typography>
+)
+
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
   const initPosts: ArticlesMap = Object.create(null)
@@ -46,6 +56,7 @@ export default function MyApp(props: MyAppProps) {
         <CssBaseline />
         <ExternalMetadataContext.Provider value={{ metadata, setMetadata }}>
           <ArticlesContext.Provider value={{ posts, setPosts }}>
+            {TopBar}
             <Component {...pageProps} />
           </ArticlesContext.Provider>
         </ExternalMetadataContext.Provider>
