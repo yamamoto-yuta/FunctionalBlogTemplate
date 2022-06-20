@@ -4,6 +4,7 @@ import Copyright from '../components/Copylight'
 import { IndexPage } from '../components/pages/IndexPage'
 import { ConfigJson, getConfigJson } from '../lib/api/config'
 import { IndexJson, getIndexJson } from '../lib/api/fixed/index'
+import { rootPath } from '../lib/consts'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -13,7 +14,7 @@ const Home: NextPage<Props> = ({ config, index }: { config: ConfigJson, index: I
       <Head>
         <title>{`${config.blog_title}`}</title>
         <meta name="description" content={`${config.site_introduction}`} />
-        <link rel="icon" href={`${config.root_url}/static/favicon.ico`} />
+        <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
       </Head>
       <main>
         <IndexPage config={config} index={index} />

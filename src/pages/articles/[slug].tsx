@@ -23,6 +23,7 @@ import {
 } from '../../lib/api/externalMetadata'
 import { getRelatedJson } from '../../lib/api/relatedArticles'
 import { RelatedArticles } from '../../components/RelatedArticles'
+import { rootPath } from '../../lib/consts'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -61,7 +62,7 @@ const Post: NextPage<Props> = ({
       <Head>
         <title>{`${post.title} | ${config.blog_title}`}</title>
         <meta name="description" content={`${post.description}`} />
-        <link rel="icon" href={`${config.root_url}/static/favicon.ico`} />
+        <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
         <meta
           property="og:title"
           content={`${post.title} | ${config.blog_title}`}
@@ -69,17 +70,17 @@ const Post: NextPage<Props> = ({
         <meta property="og:description" content={post.description} />
         <meta
           property="og:image"
-          content={`${config.root_url}/static/images/thumbnail/${post.slug}.jpg`}
+          content={`${rootPath}/static/images/thumbnail/${post.slug}.jpg`}
         />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content={config.blog_title} />
         <meta
           property="og:url"
-          content={`${config.root_url}/article/${post.slug}`}
+          content={`${rootPath}/article/${post.slug}`}
         />
         <meta
           name="twitter:image"
-          content={`${config.root_url}/static/images/thumbnail/${post.slug}.jpg`}
+          content={`${rootPath}/static/images/thumbnail/${post.slug}.jpg`}
         />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>

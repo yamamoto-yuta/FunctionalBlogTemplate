@@ -9,6 +9,7 @@ import {
 } from '@mui/material'
 import { ExternalMetadataContext } from '../pages/_app'
 import { useContext } from 'react'
+import { rootPath } from '../lib/consts'
 
 export const CardLink = ({ url }: { url: string }) => {
   const { metadata, setMetadata } = useContext(ExternalMetadataContext)
@@ -38,7 +39,7 @@ export const CardLink = ({ url }: { url: string }) => {
     description = description.slice(0, description_max_length).concat('...')
   }
 
-  const image = metadata[url]['image_url']
+  const image = `${rootPath}${metadata[url]['image_url']}`
   let image_component = <div />
   if (image === undefined) {
     image_component = <div />

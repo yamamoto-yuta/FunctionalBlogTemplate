@@ -6,9 +6,6 @@ export type ConfigJson = {
   site_introduction: string
   copylight_name: string
   copylight_url: string
-  root_url: string
-  url_domain: string
-  url_subpath: string
   issues_page_url: string
   author_name: string | undefined
   author_introduction: string | undefined
@@ -34,9 +31,6 @@ export const getConfigJson = () => {
       site_introduction: 'site_introduction',
       copylight_name: 'copylight_name',
       copylight_url: 'copylight_url',
-      root_url: '',
-      url_domain: '',
-      url_subpath: '',
       issues_page_url: '',
       author_name: 'author_name',
       author_introduction: 'author_introduction',
