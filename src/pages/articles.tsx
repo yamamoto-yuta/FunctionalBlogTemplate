@@ -12,6 +12,7 @@ import {
 } from '../components/pages/ArticlesList'
 import { Article, getAllArticles } from '../lib/api/article'
 import { ConfigJson, getConfigJson } from '../lib/api/config'
+import { rootPath } from '../lib/consts'
 import { getNow } from '../lib/datetime'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
@@ -51,7 +52,7 @@ const Posts: NextPage<Props> = ({
           name="description"
           content={`${config.blog_title} article list`}
         />
-        <link rel="icon" href={`${config.root_url}/static/favicon.ico`} />
+        <link rel="icon" href={`${rootPath}/static/favicon.ico`} />
       </Head>
       <main>
         <Container maxWidth="md">

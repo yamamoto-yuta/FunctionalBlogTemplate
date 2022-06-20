@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { TagsList } from '../../components/pages/TagsList'
 import { ConfigJson, getConfigJson } from '../../lib/api/config'
 import { getAllTags, Tag } from '../../lib/api/tags'
+import { rootPath } from '../../lib/consts'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -26,7 +27,7 @@ const Tags: NextPage<Props> = ({
       <Head>
         <title>{`Tags | ${config.blog_title}`}</title>
         <meta name="description" content={`${config.blog_title} tag list`} />
-        <link rel="icon" href={`${config.root_url}/static/favicon.ico`} />
+        <link rel="icon" href={`${rootPath}/static/favicon.ico`} />
       </Head>
       <main>
         <Container maxWidth="md">

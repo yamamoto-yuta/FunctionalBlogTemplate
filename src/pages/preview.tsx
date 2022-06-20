@@ -23,6 +23,7 @@ import { ConfigJson, getConfigJson } from '../lib/api/config'
 import { IndexJson } from '../lib/api/fixed'
 import { ArticlesContext } from './_app'
 import YAML from 'yaml'
+import { rootPath } from '../lib/consts'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -123,7 +124,7 @@ const Preview: NextPage<Props> = ({
       <Head>
         <title>{`preview | ${config.blog_title}`}</title>
         <meta name="description" content={`${config.site_introduction}`} />
-        <link rel="icon" href={`${config.root_url}/static/favicon.ico`} />
+        <link rel="icon" href={`${rootPath}/static/favicon.ico`} />
       </Head>
       <main>
         <Box sx={{ ml: '1rem', mt: '2rem' }}>

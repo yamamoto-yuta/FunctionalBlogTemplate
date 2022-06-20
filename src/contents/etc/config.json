@@ -3,11 +3,8 @@
     "site_introduction": "Simple template of RibbonCMS sideF",
     "copylight_name": "RibbonCMS",
     "copylight_url": "https://github.com/RibbonCMS",
-    "root_url": "https://ribboncms.github.io/RibbonCMS_sideF/",
     "issues_page_url": "https://github.com/RibbonCMS/RibbonCMS_sideM/issues",
     "favicon_image_url": "https://user-images.githubusercontent.com/42331656/171428845-ad398f70-a4b4-4d28-b710-44bef355fda5.png",
     "author_name": "RibbonCMS team",
-    "author_introduction": "RibbonCMSを開発しています。",
-    "url_domain": "ribboncms.github.io",
-    "url_subpath": "/RibbonCMS_sideF/"
+    "author_introduction": "RibbonCMSを開発しています。"
 }
