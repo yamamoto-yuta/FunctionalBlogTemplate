@@ -62,7 +62,7 @@ const Post: NextPage<Props> = ({
       <Head>
         <title>{`${post.title} | ${config.blog_title}`}</title>
         <meta name="description" content={`${post.description}`} />
-        <link rel="icon" href={`${rootPath}/static/favicon.ico`} />
+        <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
         <meta
           property="og:title"
           content={`${post.title} | ${config.blog_title}`}

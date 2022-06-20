@@ -52,7 +52,7 @@ const Posts: NextPage<Props> = ({
           name="description"
           content={`${config.blog_title} article list`}
         />
-        <link rel="icon" href={`${rootPath}/static/favicon.ico`} />
+        <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
       </Head>
       <main>
         <Container maxWidth="md">

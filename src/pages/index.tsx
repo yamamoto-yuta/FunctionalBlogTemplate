@@ -14,7 +14,7 @@ const Home: NextPage<Props> = ({ config, index }: { config: ConfigJson, index: I
       <Head>
         <title>{`${config.blog_title}`}</title>
         <meta name="description" content={`${config.site_introduction}`} />
-        <link rel="icon" href={`${rootPath}/static/favicon.ico`} />
+        <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
       </Head>
       <main>
         <IndexPage config={config} index={index} />

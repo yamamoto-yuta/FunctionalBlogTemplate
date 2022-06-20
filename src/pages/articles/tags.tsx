@@ -27,7 +27,7 @@ const Tags: NextPage<Props> = ({
       <Head>
         <title>{`Tags | ${config.blog_title}`}</title>
         <meta name="description" content={`${config.blog_title} tag list`} />
-        <link rel="icon" href={`${rootPath}/static/favicon.ico`} />
+        <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
       </Head>
       <main>
         <Container maxWidth="md">

@@ -124,7 +124,7 @@ const Preview: NextPage<Props> = ({
       <Head>
         <title>{`preview | ${config.blog_title}`}</title>
         <meta name="description" content={`${config.site_introduction}`} />
-        <link rel="icon" href={`${rootPath}/static/favicon.ico`} />
+        <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
       </Head>
       <main>
         <Box sx={{ ml: '1rem', mt: '2rem' }}>

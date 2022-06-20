@@ -36,6 +36,7 @@ import remarkMath from 'remark-math'
 import remarkHtmlKatex from 'remark-html-katex'
 import 'highlight.js/styles/github-dark-dimmed.css'
 import { TextLink } from './Link'
+import { rootPath } from '../lib/consts'
 
 type Props = { children: string }
 
@@ -325,10 +326,11 @@ const MdImage: Components['img'] = ({ node, ...props }) => {
     typeof node.properties?.alt === 'string'
   ) {
     let img_url = node.properties?.origin_url
+    let img_path = `${rootPath}${node.properties?.src}`
     if (typeof img_url !== 'string') {
       img_url = node.properties?.src
+      img_path = node.properties?.src
     }
-    const img_path = node.properties?.src
     return (
       <Grid container>
         <Grid item xs={0} sm={1} />
