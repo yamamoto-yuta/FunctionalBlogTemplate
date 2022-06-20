@@ -14,12 +14,7 @@ export type Article = {
 }
 
 export type ArticlesMap = {
-  [slug: string]: {
-    slug: string
-    title: string
-    tags: Tag[]
-    posted_at: string
-  }
+  [slug: string]: Article
 }
 
 const postsDirectory = path.join(process.cwd(), 'contents', 'articles')
@@ -113,6 +108,9 @@ export const articlesListToMap = (posts: Article[]) => {
       title: post.title,
       tags: post.tags,
       posted_at: post.posted_at,
+      content: '',
+      updated_at: '',
+      description: '',
     }
   })
   return postsMap

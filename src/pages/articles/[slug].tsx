@@ -21,6 +21,8 @@ import {
   ExternalMetadata,
   getExternalMetadataJson,
 } from '../../lib/api/externalMetadata'
+import { getRelatedJson } from '../../lib/api/relatedArticles'
+import { RelatedArticles } from '../../components/RelatedArticles'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -29,11 +31,13 @@ const Post: NextPage<Props> = ({
   config,
   postsMap,
   metadata,
+  relatedPosts,
 }: {
   post: Article
   config: ConfigJson
   postsMap: ArticlesMap
   metadata: ExternalMetadata
+  relatedPosts: Article[]
 }) => {
   const { setPosts } = useContext(ArticlesContext)
   setPosts(postsMap)
@@ -82,6 +86,7 @@ const Post: NextPage<Props> = ({
       <main>
         <Container maxWidth="md">
           <ArticlePage config={config} post={post} />
+          <RelatedArticles posts={relatedPosts} />
         </Container>
       </main>
       <footer>
@@ -117,21 +122,24 @@ export const getStaticProps = async ({ params }: any) => {
   ])
   const config = getConfigJson()
   const metadata = getExternalMetadataJson()
-  const slugs: string[] = extractArticleLink(post.content)
+  const linkedSlugs: string[] = extractArticleLink(post.content)
+  const relatedSlugs = getRelatedJson()[post.slug]
   const postsMap = articlesListToMap(
-    getAllArticles(['slug', 'title', 'posted_at', 'tags']).filter((post) =>
-      slugs.includes(post.slug),
+    getAllArticles(['slug', 'title', 'posted_at', 'tags']).filter(
+      (post) =>
+        linkedSlugs.includes(post.slug) || relatedSlugs.includes(post.slug),
     ),
   )
-  // const relatedSlugs = getRelatedJson()[post.slug]
-  // const relatedPosts = relatedSlugs.map((slug) => {return posts[slug]})
+  const relatedPosts = relatedSlugs.map((slug) => {
+    return postsMap[slug]
+  })
   return {
     props: {
       post,
       config,
       postsMap,
       metadata,
-      // relatedPosts,
+      relatedPosts,
     },
   }
 }
