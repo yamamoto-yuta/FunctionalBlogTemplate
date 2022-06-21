@@ -33,24 +33,11 @@ jobs:
     - name: Check Publish flag
       run: python3 check.py
 
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        repository: T_GITHUB_USER_NAME/T_FRONTEND_REPOSITORY
-        path: front
-        ref: main
-
     - name: build markdown
       run: python3 build.py
 
-    - name: Push
-      uses: cpina/github-action-push-to-another-repository@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-        source-directory: githubio/src
-        destination-github-username: 'T_GITHUB_USER_NAME'
-        destination-repository-name: 'T_FRONTEND_REPOSITORY'
-        user-email: T_GITHUB_USER_EMAIL
-        target-branch: T_FRONTEND_TARGET_BRANCH
-        target-directory: src
+    - name: Git commit
+      run: |
+        git add .
+        git commit -m 'Issue build'
+
