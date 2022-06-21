@@ -40,14 +40,11 @@ jobs:
     - name: Commit & Push
       run: |
         git add -N .
-        if ! git diff --exit-code --quiet
-        then
-          git config user.name T_GITHUB_USER_NAME
-          git config user.email T_GITHUB_USER_EMAIL
-          git add front_contents
-          git commit -m "Issue build: update front_contents"
-          git push
-        fi
+        git config user.name T_GITHUB_USER_NAME
+        git config user.email T_GITHUB_USER_EMAIL
+        git add front_contents
+        git commit -m "Issue build: update front_contents"
+        git push
 
     - name: Checkout
       uses: actions/checkout@v2
