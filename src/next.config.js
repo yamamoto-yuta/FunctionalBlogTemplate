@@ -1,3 +1,5 @@
+import { basePath } from './lib/const'
+
 /** @type {import('next').NextConfig} */
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -5,9 +7,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 let config = {
   reactStrictMode: true,
+  basePath: basePath
 }
-
-// ↓ ** Do not touch this line ** ↓
-config['basePath'] = '/SimpleBlogTemplate'
 
 module.exports = withBundleAnalyzer(config)
