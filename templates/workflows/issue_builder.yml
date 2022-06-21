@@ -44,8 +44,8 @@ jobs:
         then
           git config user.name T_GITHUB_USER_NAME
           git config user.email T_GITHUB_USER_EMAIL
-          git add .
-          git commit -m "Update: Issue build"
+          git add front_contents
+          git commit -m "Issue build: update front_contents"
           git push
         fi
 
