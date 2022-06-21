@@ -52,7 +52,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        repository: T_GITHUB_USER_NAME/T_FRONTEND_REPOSITORY
+        repository: T_FRONTEND_OWNER/T_FRONTEND_REPOSITORY
         path: front
         ref: main
 
