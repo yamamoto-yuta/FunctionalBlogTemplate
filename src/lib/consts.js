@@ -1,6 +1,3 @@
-const rootPath = 'https://ribboncms.github.io/SimpleBlogTemplate'
-const basePath = '/SimpleBlogTemplate'
-const domainPath = 'ribboncms.github.io'
-exports.rootPath = rootPath
-exports.basePath = basePath
-exports.domainPath = domainPath
+exports.rootPath = 'https://ribboncms.github.io/SimpleBlogTemplate'
+exports.basePath = '/SimpleBlogTemplate'
+exports.domainPath = 'ribboncms.github.io'
