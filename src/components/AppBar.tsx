@@ -65,7 +65,7 @@ const HideOnScroll = (props: Props) => {
           </Grid>
         </Toolbar>
       </AppBar>
-      <Box sx={{}}/>
+      <Box sx={{m: '6rem'}}/>
       </div>
     )
   }
