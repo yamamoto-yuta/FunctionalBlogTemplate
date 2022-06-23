@@ -2,7 +2,7 @@
 name: Profile
 about: profile page
 title: ''
-labels: 'profile'
+labels: 'fixed/profile'
 assignees: ''
 
 ---
