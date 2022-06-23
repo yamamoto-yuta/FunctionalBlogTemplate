@@ -7,9 +7,9 @@ export type ConfigJson = {
   copylight_name: string
   copylight_url: string
   issues_page_url: string
-  author_name: string | undefined
-  author_introduction: string | undefined
-  avatar_image_url: string | undefined
+  author_name: string
+  avatar_image_url: string
+  author_introduction: string
   sns: { name: string; url: string }[] | undefined
 }
 

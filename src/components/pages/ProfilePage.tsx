@@ -36,17 +36,16 @@ export const ProfilePage = ({
         handleChange={handleChange}
       />
       <SkillCards skillsDataList={skillsData} />
-      <MarkdownRenderer>
-        {"## 作品"}
-      </MarkdownRenderer>
+      <MarkdownRenderer>{'## 作品'}</MarkdownRenderer>
       <WorksCardCarousel workDataList={worksData} />
-      <MarkdownRenderer>
-              {"## これまでの活動"}
-            </MarkdownRenderer>
-            <Box sx={{ml: {sm: '3rem', xs: 0}, mr: {sm: '1rem', xs: 0}}}>
-              <LineMessage avatarName={config.author_name} avatarImage={config.avatar_image_url} messages={profile.time_line}/>
-            </Box>
-
+      <MarkdownRenderer>{'## これまでの活動'}</MarkdownRenderer>
+      <Box sx={{ ml: { sm: '3rem', xs: 0 }, mr: { sm: '1rem', xs: 0 } }}>
+        <LineMessage
+          avatarName={config.author_name}
+          avatarImage={config.avatar_image_url}
+          messages={profile.time_line}
+        />
+      </Box>
     </div>
   )
 }
