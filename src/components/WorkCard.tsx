@@ -12,6 +12,7 @@ import {
 } from '@mui/material'
 import { rootPath } from '../lib/consts'
 import { MarkdownRenderer } from './MarkdownRenderer'
+import 'swiper/css/bundle'
 
 SwiperCore.use([Pagination, Navigation])
 

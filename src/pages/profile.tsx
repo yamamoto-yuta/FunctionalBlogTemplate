@@ -7,7 +7,6 @@ import { ProfilePage } from '../components/pages/ProfilePage'
 import { ConfigJson, getConfigJson } from '../lib/api/config'
 import { getProfileJson, ProfileJson } from '../lib/api/fixed/profile'
 import { rootPath } from '../lib/consts'
-import 'swiper/css/bundle'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
