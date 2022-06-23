@@ -1,4 +1,4 @@
-import { AppBar as MuiAppBar, Container, Grid, Slide, Toolbar, Typography, useScrollTrigger } from "@mui/material"
+import { AppBar as MuiAppBar, Box, Container, Grid, Slide, Toolbar, Typography, useScrollTrigger } from "@mui/material"
 import Link from "next/link"
 import { ConfigJson } from "../lib/api/config"
 import theme from "../lib/theme"
@@ -42,6 +42,7 @@ const HideOnScroll = (props: Props) => {
     slug?: string
   }) => {
     return (
+        <div>
       <AppBar>
         <Toolbar>
           <Grid container>
@@ -60,11 +61,12 @@ const HideOnScroll = (props: Props) => {
                     {config.blog_title}
                 </Typography>
                 </Link>
-
             </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
+      <Box sx={{}}/>
+      </div>
     )
   }
   
