@@ -12,7 +12,7 @@ import { TagButtons } from './TagButton'
 import { Article } from '../lib/api/article'
 import { Tag } from '../lib/api/tags'
 import { getNow } from '../lib/datetime'
-import { basePath } from '../lib/consts'
+import { rootPath } from '../lib/consts'
 
 export const PostCard = ({
   slug,
@@ -48,7 +48,7 @@ export const PostCard = ({
           <Box sx={{ pt: 0, pb: 0, pr: 0, width: '100%', pl: 0 }}>
             <CardMedia
               component="img"
-              image={`${basePath}/static/images/thumbnail/${slug}.jpg`}
+              image={`${rootPath}/static/images/thumbnail/${slug}.jpg`}
               alt="thumbnail"
             />
             <Box sx={{ pr: '1.4rem', pl: '1.4rem' }}>
