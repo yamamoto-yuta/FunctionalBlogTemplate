@@ -1,6 +1,6 @@
 ---
 name: Config
-about: 
+about: Config for setting this site
 title: 'Config'
 labels: 'config'
 assignees: ''
