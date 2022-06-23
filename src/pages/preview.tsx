@@ -134,6 +134,7 @@ const Preview: NextPage<Props> = ({
         <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
       </Head>
       <main>
+        <AppBarWithTitle config={config} />
         <Box sx={{ ml: '1rem', mt: '2rem' }}>
           <SelectPageType
             pageType={pageType}

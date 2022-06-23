@@ -3,6 +3,7 @@ import type { InferGetStaticPropsType, NextPage } from 'next'
 import ErrorPage from 'next/error'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { AppBarWithTitle } from '../../components/AppBar'
 import { TagsList } from '../../components/pages/TagsList'
 import { ConfigJson, getConfigJson } from '../../lib/api/config'
 import { getAllTags, Tag } from '../../lib/api/tags'
@@ -30,6 +31,7 @@ const Tags: NextPage<Props> = ({
         <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
       </Head>
       <main>
+        <AppBarWithTitle config={config} />
         <Container maxWidth="md">
           <TagsList config={config} tags={tags} />
         </Container>

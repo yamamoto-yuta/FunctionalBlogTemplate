@@ -2,6 +2,7 @@ import { Container } from '@mui/material'
 import { NextPage, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { AppBarWithTitle } from '../components/AppBar'
 import Copyright from '../components/Copylight'
 import { ProfilePage } from '../components/pages/ProfilePage'
 import { ConfigJson, getConfigJson } from '../lib/api/config'
@@ -30,6 +31,7 @@ const Profile: NextPage<Props> = ({
         <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
       </Head>
       <main>
+      <AppBarWithTitle config={config} />
         <Container maxWidth="md">
           <ProfilePage
             config={config}

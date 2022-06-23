@@ -55,6 +55,7 @@ const Posts: NextPage<Props> = ({
         <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
       </Head>
       <main>
+        <AppBarWithTitle config={config} />
         <Container maxWidth="md">
           <ArticlesList
             config={config}

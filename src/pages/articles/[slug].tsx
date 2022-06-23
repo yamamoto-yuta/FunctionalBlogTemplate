@@ -24,6 +24,7 @@ import {
 import { getRelatedJson } from '../../lib/api/relatedArticles'
 import { RelatedArticles } from '../../components/RelatedArticles'
 import { rootPath } from '../../lib/consts'
+import { AppBarWithTitle } from '../../components/AppBar'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -82,6 +83,7 @@ const Post: NextPage<Props> = ({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <main>
+        <AppBarWithTitle config={config} slug={post.slug} />
         <Container maxWidth="md">
           <ArticlePage config={config} post={post} />
           <RelatedArticles posts={relatedPosts} />

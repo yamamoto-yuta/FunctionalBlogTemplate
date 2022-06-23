@@ -23,6 +23,7 @@ const Home: NextPage<Props> = ({
         <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
       </Head>
       <main>
+        <AppBarWithTitle config={config} />
         <IndexPage config={config} index={index} />
       </main>
       <footer>
