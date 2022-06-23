@@ -74,10 +74,7 @@ const Post: NextPage<Props> = ({
         />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content={config.blog_title} />
-        <meta
-          property="og:url"
-          content={`${rootPath}/article/${post.slug}`}
-        />
+        <meta property="og:url" content={`${rootPath}/article/${post.slug}`} />
         <meta
           name="twitter:image"
           content={`${rootPath}/static/images/thumbnail/${post.slug}.jpg`}

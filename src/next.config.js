@@ -1,4 +1,3 @@
-
 /** @type {import('next').NextConfig} */
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -7,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const { basePath } = require('./lib/consts')
 let config = {
   reactStrictMode: true,
-  basePath: basePath
+  basePath: basePath,
 }
 
 module.exports = withBundleAnalyzer(config)

@@ -69,13 +69,12 @@ const valueToObject = (pageType: string, value: string) => {
       description: '',
     }
     return post
-  } else if (pageType === 'index' ) {
+  } else if (pageType === 'index') {
     try {
       return YAML.parse(value) as IndexJson
     } catch (err) {
-      return {site_description: ''
-      } as IndexJson
-    } 
+      return { site_description: '' } as IndexJson
+    }
   }
   return undefined
 }
@@ -86,18 +85,26 @@ const resetDefaultValue = (
 ) => {
   if (pageType === 'article') {
     setValue('## preview article\nedit here!')
-  } else if (pageType === 'index' ) {
+  } else if (pageType === 'index') {
     setValue('site_description: ')
   } else {
     setValue('')
   }
 }
 
-const Previewed = ({ pageType, config, object }: { pageType: string, config: ConfigJson; object: any }) => {
+const Previewed = ({
+  pageType,
+  config,
+  object,
+}: {
+  pageType: string
+  config: ConfigJson
+  object: any
+}) => {
   if (object !== undefined) {
     if (pageType === 'article') {
       return <ArticlePage config={config} post={object} />
-    } else if (pageType === 'index' ) {
+    } else if (pageType === 'index') {
       return <IndexPage config={config} index={object} />
     } else {
       return <div />

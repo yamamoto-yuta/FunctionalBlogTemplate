@@ -8,7 +8,13 @@ import { rootPath } from '../lib/consts'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const Home: NextPage<Props> = ({ config, index }: { config: ConfigJson, index: IndexJson }) => {
+const Home: NextPage<Props> = ({
+  config,
+  index,
+}: {
+  config: ConfigJson
+  index: IndexJson
+}) => {
   return (
     <div>
       <Head>
