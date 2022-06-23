@@ -87,7 +87,7 @@ export default function SideBar({
         <ListItemButton text="Tags" href='/articles/tags'>
           <LocalOfferIcon />
         </ListItemButton>
-        <ListItemButton text="Edit page" href={edit_page_url}>
+        <ListItemButton text="Edit page" href={edit_page_url} >
           <EditIcon />
         </ListItemButton>
       </List>
@@ -134,7 +134,7 @@ const ListItemButton = ({
   if (
     href?.startsWith('#') ||
     href?.startsWith('/') ||
-    href?.includes(domainPath)
+    href?.includes(`://${domainPath}`)
   ) {
     return (
       <Link href={href} passHref>
