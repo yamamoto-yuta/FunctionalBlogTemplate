@@ -1,5 +1,6 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
+import { AppBarWithTitle } from '../components/AppBar'
 import Copyright from '../components/Copylight'
 import { IndexPage } from '../components/pages/IndexPage'
 import { ConfigJson, getConfigJson } from '../lib/api/config'

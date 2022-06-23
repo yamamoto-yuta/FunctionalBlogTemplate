@@ -24,6 +24,7 @@ import { IndexJson } from '../lib/api/fixed'
 import { ArticlesContext } from './_app'
 import YAML from 'yaml'
 import { rootPath } from '../lib/consts'
+import { AppBarWithTitle } from '../components/AppBar'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 

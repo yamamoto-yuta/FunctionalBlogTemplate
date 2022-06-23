@@ -3,6 +3,7 @@ import type { InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { AppBarWithTitle } from '../components/AppBar'
 import Copyright from '../components/Copylight'
 import {
   ArticlesList,
