@@ -16,4 +16,5 @@ issues_page_url: https://github.com/RibbonCMS/RibbonCMS_sideM/issues
 favicon_image_url: https://user-images.githubusercontent.com/42331656/175183205-06dc6033-af20-44b9-ae3d-c3e68770a1f3.png
 author_name: RibbonCMS team
 author_introduction: We are RibbonCMS team.
+avatar_image_url: https://user-images.githubusercontent.com/42331656/175183205-06dc6033-af20-44b9-ae3d-c3e68770a1f3.png
 ```
