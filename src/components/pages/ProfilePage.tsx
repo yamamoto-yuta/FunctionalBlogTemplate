@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { ConfigJson } from '../../lib/api/config'
 import { ProfileJson } from '../../lib/api/fixed/profile'
 import { AuthorIntroduction } from '../AuthorIntroduction'
+import { LineMessage } from '../LineMessage'
 import { MarkdownRenderer } from '../MarkdownRenderer'
 import { SkillCards, SkillCardsSelector } from '../SkillCard'
 import { WorksCardCarousel } from '../WorkCard'
@@ -39,6 +40,13 @@ export const ProfilePage = ({
         {"## 作品"}
       </MarkdownRenderer>
       <WorksCardCarousel workDataList={worksData} />
+      <MarkdownRenderer>
+              {"## これまでの活動"}
+            </MarkdownRenderer>
+            <Box sx={{ml: {sm: '3rem', xs: 0}, mr: {sm: '1rem', xs: 0}}}>
+              <LineMessage avatarName={config.author_name} avatarImage={config.avatar_image_url} messages={profile.time_line}/>
+            </Box>
+
     </div>
   )
 }
