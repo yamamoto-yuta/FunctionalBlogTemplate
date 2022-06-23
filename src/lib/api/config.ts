@@ -10,7 +10,7 @@ export type ConfigJson = {
   author_name: string
   avatar_image_url: string
   author_introduction: string
-  sns: { name: string; url: string }[] | undefined
+  sns: { name: string; url: string }[]
 }
 
 const configDirectory = path.join(process.cwd(), 'contents', 'etc')
@@ -35,7 +35,7 @@ export const getConfigJson = () => {
       author_name: 'author_name',
       author_introduction: 'author_introduction',
       avatar_image_url: '',
-      sns: undefined,
+      sns: [],
     }
     return config
   }

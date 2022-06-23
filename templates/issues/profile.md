@@ -8,6 +8,8 @@ assignees: ''
 ---
 ```yaml
 # Your skills
+site_description: "hoge hoge",
+author_description_detail: "my name is fuga!",
 skills_data:
   - title: Skill 1
     description: |-
