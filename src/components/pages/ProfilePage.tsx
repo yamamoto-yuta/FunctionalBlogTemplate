@@ -5,6 +5,7 @@ import { ProfileJson } from '../../lib/api/fixed/profile'
 import { AuthorIntroduction } from '../AuthorIntroduction'
 import { MarkdownRenderer } from '../MarkdownRenderer'
 import { SkillCards, SkillCardsSelector } from '../SkillCard'
+import { WorksCardCarousel } from '../WorkCard'
 
 export const ProfilePage = ({
   config,
@@ -34,6 +35,10 @@ export const ProfilePage = ({
         handleChange={handleChange}
       />
       <SkillCards skillsDataList={skillsData} />
+      <MarkdownRenderer>
+        {"## 作品"}
+      </MarkdownRenderer>
+      <WorksCardCarousel workDataList={worksData} />
     </div>
   )
 }

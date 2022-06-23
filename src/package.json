@@ -38,6 +38,7 @@
     "remark-gfm": "^3.0.1",
     "remark-html-katex": "^4.0.1",
     "remark-math": "^5.1.1",
+    "swiper": "^8.2.4",
     "unified": "^10.1.2",
     "yaml": "^2.1.1"
   },
