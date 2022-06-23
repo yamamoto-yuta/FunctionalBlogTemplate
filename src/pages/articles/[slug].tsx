@@ -83,7 +83,7 @@ const Post: NextPage<Props> = ({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <main>
-        <AppBarWithTitle config={config} slug={post.slug} />
+        <AppBarWithTitle config={config} />
         <Container maxWidth="md">
           <ArticlePage config={config} post={post} />
           <RelatedArticles posts={relatedPosts} />

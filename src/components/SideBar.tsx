@@ -29,14 +29,8 @@ import { domainPath, rootPath } from '../lib/consts'
 type Anchor = 'top' | 'left' | 'bottom' | 'right'
 const anchor: Anchor = 'left'
 
-export default function SideBar({
-  config,
-  slug,
-}: {
-  config: ConfigJson
-  slug?: string
-}) {
-  const edit_page_url = `${config.issues_page_url}/${slug}`
+export const SideBar = ({ config }: { config: ConfigJson }) => {
+  const edit_page_url = config.issues_page_url
   const author_name: string = config.author_name
   const author_description: string = config.author_introduction
   const sns_list: { name: string; url: string }[] = config.sns

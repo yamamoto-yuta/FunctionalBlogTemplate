@@ -2,7 +2,7 @@ import { AppBar as MuiAppBar, Box, Container, Grid, Slide, Toolbar, Typography, 
 import Link from "next/link"
 import { ConfigJson } from "../lib/api/config"
 import theme from "../lib/theme"
-import SideBar from "./SideBar"
+import { SideBar } from "./SideBar"
 
 interface Props {
     children: React.ReactElement
@@ -36,10 +36,8 @@ const HideOnScroll = (props: Props) => {
   
   export const AppBarWithTitle = ({
     config,
-    slug,
   }: {
     config: ConfigJson
-    slug?: string
   }) => {
     return (
         <div>
@@ -47,7 +45,7 @@ const HideOnScroll = (props: Props) => {
         <Toolbar>
           <Grid container>
             <Grid item xs={2}>
-              <SideBar config={config} slug={slug} />
+              <SideBar config={config} />
             </Grid>
             <Grid item xs={10}>
             <Link href='/' passHref>
