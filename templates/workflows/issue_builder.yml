@@ -28,18 +28,30 @@ jobs:
         echo "${CLOSED_AT}" >| issue/closed_at.txt
         echo "${STATUS}" >| issue/status.txt
 
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        repository: T_SIDE_M_REPOSITORY
+        path: side_m
+        ref: main
+
     - name: Install Package
-      run: pip install -r requirements.txt
+      run: |
+        cd side_m
+        pip install -r requirements.txt
 
     - name: Check Publish flag
-      run: python3 check.py
+      run: |
+        cd side_m
+        python3 check.py
 
     - name: build markdown
-      run: python3 closed.py
+      run: |
+        cd side_m
+        python3 closed.py
 
     - name: Commit & Push
       run: |
-        git add -N .
         git config user.name T_GITHUB_USER_NAME
         git config user.email T_GITHUB_USER_EMAIL
         git add front_contents
@@ -49,12 +61,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        repository: T_FRONTEND_OWNER/T_FRONTEND_REPOSITORY
+        repository: T_FRONTEND_REPOSITORY
         path: front
         ref: main
 
     - name: copy contents
-      run: python3 copy_contents.py
+      run: |
+        cd side_m
+        python3 copy_contents.py
 
     # FRONTEND BUILD
     - name: Setup Node.js
