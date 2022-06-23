@@ -8,7 +8,7 @@ export type ConfigJson = {
   copylight_url: string
   issues_page_url: string
   author_name: string
-  avatar_image_url: string
+  avatar_image_url: {url: string, path: string}
   author_introduction: string
   sns: { name: string; url: string }[]
 }
@@ -34,7 +34,7 @@ export const getConfigJson = () => {
       issues_page_url: '',
       author_name: 'author_name',
       author_introduction: 'author_introduction',
-      avatar_image_url: '',
+      avatar_image_url: {url: '', path: ''},
       sns: [],
     }
     return config

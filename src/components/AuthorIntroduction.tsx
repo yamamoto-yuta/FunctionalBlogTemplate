@@ -29,7 +29,7 @@ export const AuthorIntroduction = ({
         <Grid item sm={2} xs={3}>
           <Avatar
             alt={config.author_name}
-            src={`${rootPath}/static/images/avatar/avatar.webp`}
+            src={`${rootPath}/${config.avatar_image_url.path}`}
             sx={{ width: 70, height: 70, mt: '1.2rem', align: 'center' }}
           />
         </Grid>
