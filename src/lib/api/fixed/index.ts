@@ -5,9 +5,11 @@ import path from 'path'
 // Edit here !
 type FixedJson = {
   site_description: string
+  site_header_title: string
 }
 const fixedDefault: FixedJson = {
   site_description: '',
+  site_header_title: '',
 }
 const fixedFileName = 'index.json'
 export type { FixedJson as IndexJson }
