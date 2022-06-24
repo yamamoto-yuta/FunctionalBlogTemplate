@@ -65,7 +65,7 @@ const WorksCard = ({ workData }: { workData: WorkData }) => {
         </Link>
       </Typography>
       <Box
-        sx={{ overflowY: 'auto', height: { xs: 200, sm: 250 } }}
+        sx={{ overflowY: 'auto', height: { xs: 250, sm: 250 } }}
         css={scrollBarStyle}
       >
         <Box sx={{ mr: '0.5rem', ml: '0.5rem', mb: '1rem' }}>
