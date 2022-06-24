@@ -97,6 +97,19 @@ export const getAllArticles = (fields: string[] = []) => {
 }
 
 /**
+ * 指定したタグがついている記事を全て取得する
+ * @param tag_name 取得するタグ名
+ */
+export function getTagedArticles(tag_name: string) {
+  const allPosts = getAllArticles(['slug', 'title', 'posted_at', 'tags'])
+
+  const tagedPosts = allPosts.filter((post) =>
+    post.tags.some((tag) => tag.name === tag_name),
+  )
+  return tagedPosts
+}
+
+/**
  * convert Article[] into ArticlesMap.
  * @param posts Article[] to convert
  */
