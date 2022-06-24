@@ -1,4 +1,5 @@
 import {
+    Box,
   Card,
   CardContent,
   CardMedia,
@@ -11,15 +12,14 @@ import {
 import { SkillData } from '../lib/api/fixed/profile'
 import { rootPath } from '../lib/consts'
 import { MarkdownRenderer } from './MarkdownRenderer'
+import { scrollBarStyle } from './ScrollBar'
 
 const SkillCard = ({ skillData }: { skillData: SkillData }) => {
   return (
     <Card
       sx={{
         width: { xs: 160, sm: 180 },
-        height: { xs: 270 },
         mb: '1rem',
-        overflowY: 'auto',
       }}
     >
       <Grid container sx={{ mt: 1, mb: 1 }}>
@@ -42,7 +42,10 @@ const SkillCard = ({ skillData }: { skillData: SkillData }) => {
         >
           {skillData['title']}
         </Typography>
+        <Box sx={{height: { xs: 150 },
+        overflowY: 'auto'}} css={scrollBarStyle}>
         <MarkdownRenderer>{skillData['description']}</MarkdownRenderer>
+        </Box>
       </CardContent>
     </Card>
   )

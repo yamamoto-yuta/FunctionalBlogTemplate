@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Pagination, Navigation } from 'swiper'
 import { WorkData } from '../lib/api/fixed/profile'
 import {
+    Box,
   Button,
   Card,
   CardContent,
@@ -13,6 +14,7 @@ import {
 import { rootPath } from '../lib/consts'
 import { MarkdownRenderer } from './MarkdownRenderer'
 import 'swiper/css/bundle'
+import { scrollBarStyle } from './ScrollBar'
 
 SwiperCore.use([Pagination, Navigation])
 
@@ -21,9 +23,7 @@ const WorksCard = ({ workData }: { workData: WorkData }) => {
     <Card
       sx={{
         width: { xs: '100%', sm: 250 },
-        height: { xs: 400, sm: 450 },
         mb: '1rem',
-        overflowY: 'auto',
       }}
     >
       <Grid container sx={{ mt: 1, mb: 1 }}>
@@ -50,6 +50,7 @@ const WorksCard = ({ workData }: { workData: WorkData }) => {
           fontWeight="medium"
           align="center"
           component="div"
+          sx={{        height: 70}}
         >
           <Link
             variant="h3"
@@ -63,7 +64,11 @@ const WorksCard = ({ workData }: { workData: WorkData }) => {
             {workData['title']}
           </Link>
         </Typography>
+        <Box sx={{        overflowY: 'auto',         height: { xs: 200, sm: 250 }
+
+}} css={scrollBarStyle}>
         <MarkdownRenderer>{workData['description']}</MarkdownRenderer>
+        </Box>
       </CardContent>
     </Card>
   )

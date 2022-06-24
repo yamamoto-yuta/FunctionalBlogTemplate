@@ -30,7 +30,7 @@ export const ProfilePage = ({
   return (
     <div>
       <AuthorIntroduction config={config} profile={profile} />
-      
+
       <MarkdownRenderer>{'## スキル'}</MarkdownRenderer>
       <SkillCardsSelector
         skillTag={skillTag}
