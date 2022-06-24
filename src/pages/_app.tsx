@@ -8,7 +8,7 @@ import createEmotionCache from '../lib/createEmotionCache'
 import { createContext, Dispatch, useState } from 'react'
 import { ArticlesMap } from '../lib/api/article'
 import { ExternalMetadata } from '../lib/api/externalMetadata'
-import { Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { TextLink } from '../components/Link'
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -49,6 +49,7 @@ export default function MyApp(props: MyAppProps) {
         <ExternalMetadataContext.Provider value={{ metadata, setMetadata }}>
           <ArticlesContext.Provider value={{ posts, setPosts }}>
             <Component {...pageProps} />
+            <Box sx={{m: '2rem'}}/>
           </ArticlesContext.Provider>
         </ExternalMetadataContext.Provider>
       </ThemeProvider>
