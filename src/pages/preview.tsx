@@ -74,7 +74,7 @@ const valueToObject = (pageType: string, value: string) => {
     try {
       return YAML.parse(value) as IndexJson
     } catch (err) {
-      return { site_description: '' } as IndexJson
+      return { site_description: '', site_header_title: '' } as IndexJson
     }
   }
   return undefined
@@ -87,7 +87,7 @@ const resetDefaultValue = (
   if (pageType === 'article') {
     setValue('## preview article\nedit here!')
   } else if (pageType === 'index') {
-    setValue('site_description: ')
+    setValue('site_description: \nsite_header_title:')
   } else {
     setValue('')
   }
@@ -106,7 +106,7 @@ const Previewed = ({
     if (pageType === 'article') {
       return <ArticlePage config={config} post={object} />
     } else if (pageType === 'index') {
-      return <IndexPage config={config} index={object} />
+      return <IndexPage config={config} index={object} stared_posts={[]} new_posts={[]}/>
     } else {
       return <div />
     }
@@ -156,7 +156,7 @@ const Preview: NextPage<Props> = ({
           </Grid>
           <Grid item sm={0.2} xs={0} />
           <Grid item sm={7.6} xs={12}>
-            <Previewed pageType={pageType} config={config} object={object} />
+            <Previewed pageType={pageType} config={config} object={object}/>
           </Grid>
           <Grid item sm={0.2} xs={0} />
         </Grid>
