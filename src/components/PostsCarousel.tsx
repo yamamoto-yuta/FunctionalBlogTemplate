@@ -3,7 +3,7 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper'
 import { Box } from '@mui/material'
 import { PostCard } from './PostCard'
 import { Article } from '../lib/api/article'
-import { ConfigJson } from '../lib/api/config'
+import 'swiper/css/bundle'
 
 SwiperCore.use([Pagination, Navigation, Autoplay])
 
@@ -35,7 +35,7 @@ export const PostsCarousel = ({ posts }: { posts: Article[] }) => {
                 title={post.title}
                 tags={post.tags}
                 posted_at={post.posted_at}
-              />
+              />  
             </Box>
           </SwiperSlide>
         )
