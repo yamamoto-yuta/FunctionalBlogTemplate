@@ -32,7 +32,6 @@ export const ExternalMetadataContext = createContext(
   },
 )
 
-
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
   const initPosts: ArticlesMap = Object.create(null)

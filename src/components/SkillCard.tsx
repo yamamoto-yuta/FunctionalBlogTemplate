@@ -1,5 +1,5 @@
 import {
-    Box,
+  Box,
   Card,
   CardContent,
   CardMedia,
@@ -32,21 +32,20 @@ const SkillCard = ({ skillData }: { skillData: SkillData }) => {
         </Grid>
         <Grid item xs={2.5} />
       </Grid>
-      <CardContent sx={{ pt: 0, pl: '1rem', pr: '1rem', pb: 1 }}>
-        <Typography
-          gutterBottom
-          fontSize={22}
-          fontWeight="medium"
-          align="center"
-          component="div"
-        >
-          {skillData['title']}
-        </Typography>
-        <Box sx={{height: { xs: 150 },
-        overflowY: 'auto'}} css={scrollBarStyle}>
-        <MarkdownRenderer>{skillData['description']}</MarkdownRenderer>
+      <Typography
+        gutterBottom
+        fontSize={22}
+        fontWeight="medium"
+        align="center"
+        component="div"
+      >
+        {skillData['title']}
+      </Typography>
+      <Box sx={{ height: { xs: 150 }, overflowY: 'auto' }} css={scrollBarStyle}>
+        <Box sx={{ mr: '0.5rem', ml: '0.5rem', mb: '1rem' }}>
+          <MarkdownRenderer>{skillData['description']}</MarkdownRenderer>
         </Box>
-      </CardContent>
+      </Box>
     </Card>
   )
 }

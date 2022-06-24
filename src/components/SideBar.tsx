@@ -72,16 +72,16 @@ export const SideBar = ({ config }: { config: ConfigJson }) => {
           />
         </ListItem>
         <Divider />
-        <ListItemButton text="Home" href='/'>
+        <ListItemButton text="Home" href="/">
           <HomeIcon />
         </ListItemButton>
-        <ListItemButton text="Articles" href='/articles'>
+        <ListItemButton text="Articles" href="/articles">
           <ArticleIcon />
         </ListItemButton>
-        <ListItemButton text="Tags" href='/articles/tags'>
+        <ListItemButton text="Tags" href="/articles/tags">
           <LocalOfferIcon />
         </ListItemButton>
-        <ListItemButton text="Edit page" href={edit_page_url} >
+        <ListItemButton text="Edit page" href={edit_page_url}>
           <EditIcon />
         </ListItemButton>
       </List>

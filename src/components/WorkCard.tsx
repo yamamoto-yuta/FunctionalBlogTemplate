@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Pagination, Navigation } from 'swiper'
 import { WorkData } from '../lib/api/fixed/profile'
 import {
-    Box,
+  Box,
   Button,
   Card,
   CardContent,
@@ -43,33 +43,35 @@ const WorksCard = ({ workData }: { workData: WorkData }) => {
         </Grid>
         <Grid item xs={4} sm={3} />
       </Grid>
-      <CardContent sx={{ pt: 0, pl: '1rem', pr: '1rem', pb: 1 }}>
-        <Typography
-          gutterBottom
-          fontSize={22}
-          fontWeight="medium"
-          align="center"
-          component="div"
-          sx={{        height: 70}}
-        >
-          <Link
-            variant="h3"
-            href={workData.url}
-            target="_blank"
-            rel="noopener"
-            color="inherit"
-            underline="hover"
-            fontWeight="bold"
-          >
-            {workData['title']}
-          </Link>
-        </Typography>
-        <Box sx={{        overflowY: 'auto',         height: { xs: 200, sm: 250 }
 
-}} css={scrollBarStyle}>
-        <MarkdownRenderer>{workData['description']}</MarkdownRenderer>
+      <Typography
+        gutterBottom
+        fontSize={22}
+        fontWeight="medium"
+        align="center"
+        component="div"
+        sx={{ height: 70 }}
+      >
+        <Link
+          variant="h3"
+          href={workData.url}
+          target="_blank"
+          rel="noopener"
+          color="inherit"
+          underline="hover"
+          fontWeight="bold"
+        >
+          {workData['title']}
+        </Link>
+      </Typography>
+      <Box
+        sx={{ overflowY: 'auto', height: { xs: 200, sm: 250 } }}
+        css={scrollBarStyle}
+      >
+        <Box sx={{ mr: '0.5rem', ml: '0.5rem', mb: '1rem' }}>
+          <MarkdownRenderer>{workData['description']}</MarkdownRenderer>
         </Box>
-      </CardContent>
+      </Box>
     </Card>
   )
 }

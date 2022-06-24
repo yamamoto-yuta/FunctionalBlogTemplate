@@ -16,7 +16,7 @@ export const Profile = ({
       <Grid container>
         <Grid item xs={4.8} />
         <Grid item xs={2.2}>
-          <Link href='/profile' passHref>
+          <Link href="/profile" passHref>
             <IconButton>
               <Avatar
                 alt={author_name}

@@ -31,7 +31,7 @@ const Profile: NextPage<Props> = ({
         <link rel="icon" href={`${rootPath}/static/images/favicon.ico`} />
       </Head>
       <main>
-      <AppBarWithTitle config={config} />
+        <AppBarWithTitle config={config} />
         <Container maxWidth="md">
           <ProfilePage
             config={config}

@@ -1,46 +1,55 @@
-import { AppBar as MuiAppBar, Box, Container, Grid, Slide, Toolbar, Typography, useScrollTrigger } from "@mui/material"
-import Link from "next/link"
-import { ConfigJson } from "../lib/api/config"
-import theme from "../lib/theme"
-import { SideBar } from "./SideBar"
+import {
+  AppBar as MuiAppBar,
+  Box,
+  Container,
+  Grid,
+  Slide,
+  Toolbar,
+  Typography,
+  useScrollTrigger,
+} from '@mui/material'
+import Link from 'next/link'
+import { ConfigJson } from '../lib/api/config'
+import theme from '../lib/theme'
+import { SideBar } from './SideBar'
 
 interface Props {
-    children: React.ReactElement
-  }
-  
+  children: React.ReactElement
+}
+
 const HideOnScroll = (props: Props) => {
-    const { children } = props
-    const trigger = useScrollTrigger({
-      target: undefined,
-    })
-  
-    return (
-      <Slide appear={false} direction="down" in={!trigger}>
-        {children}
-      </Slide>
-    )
-  }
-  
-  export const AppBar = (props: Props) => {
-    const { children } = props
-    return (
-        <div>
-        <HideOnScroll>
-          <MuiAppBar color='inherit' sx={{backgroundColor: theme.palette.background.default}} elevation={0}>
-            <Container maxWidth="md">{children}</Container>
-          </MuiAppBar>
-        </HideOnScroll>
-        </div>
-    )
-  }
-  
-  export const AppBarWithTitle = ({
-    config,
-  }: {
-    config: ConfigJson
-  }) => {
-    return (
-        <div>
+  const { children } = props
+  const trigger = useScrollTrigger({
+    target: undefined,
+  })
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  )
+}
+
+export const AppBar = (props: Props) => {
+  const { children } = props
+  return (
+    <div>
+      <HideOnScroll>
+        <MuiAppBar
+          color="inherit"
+          sx={{ backgroundColor: theme.palette.background.default }}
+          elevation={0}
+        >
+          <Container maxWidth="md">{children}</Container>
+        </MuiAppBar>
+      </HideOnScroll>
+    </div>
+  )
+}
+
+export const AppBarWithTitle = ({ config }: { config: ConfigJson }) => {
+  return (
+    <div>
       <AppBar>
         <Toolbar>
           <Grid container>
@@ -48,23 +57,22 @@ const HideOnScroll = (props: Props) => {
               <SideBar config={config} />
             </Grid>
             <Grid item xs={10}>
-            <Link href='/' passHref>
+              <Link href="/" passHref>
                 <Typography
-                    variant="h3"
-                    component='a'
-                    display="inline"
-                    color="inherit"
-                    sx={{ textDecoration: 'none', boxShadow: 'none' }}
+                  variant="h3"
+                  component="a"
+                  display="inline"
+                  color="inherit"
+                  sx={{ textDecoration: 'none', boxShadow: 'none' }}
                 >
-                    {config.blog_title}
+                  {config.blog_title}
                 </Typography>
-                </Link>
+              </Link>
             </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
-      <Box sx={{m: '6rem'}}/>
-      </div>
-    )
-  }
-  
+      <Box sx={{ m: '6rem' }} />
+    </div>
+  )
+}
