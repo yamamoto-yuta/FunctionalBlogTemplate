@@ -8,8 +8,8 @@ type FixedJson = {
   site_header_title: string
 }
 const fixedDefault: FixedJson = {
-  site_description: '',
-  site_header_title: '',
+  site_description: 'index.json site_description',
+  site_header_title: 'index.json site_header_title',
 }
 const fixedFileName = 'index.json'
 export type { FixedJson as IndexJson }
