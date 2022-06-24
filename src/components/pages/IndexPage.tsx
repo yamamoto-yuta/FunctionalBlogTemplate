@@ -32,7 +32,7 @@ export const IndexPage = ({
       <Box sx={{ ml: { sm: '3rem', xs: 0 }, mr: { sm: '3rem', xs: 0 } }}>
         <PostCards posts={new_posts} page={1} postNumPerPage={6} />
         <Typography align="right" sx={{ mr: '2rem' }}>
-          <Link href="/article/list">
+          <Link href="/articles">
             <a>{'>>もっと見る'}</a>
           </Link>
         </Typography>
