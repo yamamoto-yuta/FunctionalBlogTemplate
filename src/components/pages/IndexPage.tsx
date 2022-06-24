@@ -3,6 +3,7 @@ import { Article } from '../../lib/api/article'
 import { ConfigJson } from '../../lib/api/config'
 import { IndexJson } from '../../lib/api/fixed/index'
 import theme from '../../lib/theme'
+import { HeaderTitle } from '../HeaderTitle'
 import { MarkdownRenderer } from '../MarkdownRenderer'
 import { PostCards } from '../PostCard'
 import { PostsCarousel } from '../PostsCarousel'
@@ -20,9 +21,7 @@ export const IndexPage = ({
 }) => {
   return (
     <div>
-      <Typography variant="h1" color="text.secondary" align="center">
-        {config.blog_title}
-      </Typography>
+      <HeaderTitle config={config}/>
       <Box sx={{ m: '3rem' }} />
 
       <MarkdownRenderer>{'## おすすめの記事'}</MarkdownRenderer>
