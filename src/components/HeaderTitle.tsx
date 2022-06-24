@@ -1,9 +1,10 @@
 import { Avatar, Box, CardMedia, Grid, Typography } from "@mui/material"
 import { ConfigJson } from "../lib/api/config"
+import { IndexJson } from "../lib/api/fixed"
 import { rootPath } from "../lib/consts"
 import theme from "../lib/theme"
 
-export const HeaderTitle = ({config}: {config: ConfigJson}) => {
+export const HeaderTitle = ({config, index}: {config: ConfigJson, index: IndexJson}) => {
     return (
         <Box
         sx={{
@@ -26,7 +27,7 @@ export const HeaderTitle = ({config}: {config: ConfigJson}) => {
             </Grid>
             <Grid item xs={8}>
                 <Typography fontSize={{md: '92px', sm: '64px', xs: '40px' }} sx={{color: '#f0ece0'}}>
-                  #雑談配信
+                  {index.site_header_title}
                 </Typography>
             </Grid>
             <Grid item xs={0} />

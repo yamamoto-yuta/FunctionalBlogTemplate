@@ -1,6 +1,6 @@
 ---
 name: Article
-about: 記事執筆用テンプレート
+about: Posting article
 title: ''
 labels: 'article'
 assignees: ''

@@ -1,6 +1,6 @@
 ---
 name: Profile
-about: profile page
+about: Setting profile.json
 title: ''
 labels: 'fixed/profile'
 assignees: ''

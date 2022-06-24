@@ -1,6 +1,6 @@
 ---
 name: Config
-about: Config for setting this site
+about: Setting config.json
 title: 'Config'
 labels: 'config'
 assignees: ''
