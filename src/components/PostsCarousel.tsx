@@ -35,7 +35,7 @@ export const PostsCarousel = ({ posts }: { posts: Article[] }) => {
                 title={post.title}
                 tags={post.tags}
                 posted_at={post.posted_at}
-              />  
+              />
             </Box>
           </SwiperSlide>
         )

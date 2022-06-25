@@ -10,8 +10,8 @@ const theme = createTheme({
       main: red.A400,
     },
     background: {
-      default: {'light': '#F0ECE0', 'dark': '#0B0E14'}[mode],
-      paper: {'light': '#ffffff', 'dark': '#141924'}[mode],
+      default: { light: '#F0ECE0', dark: '#0B0E14' }[mode],
+      paper: { light: '#ffffff', dark: '#141924' }[mode],
     },
   },
   typography: {

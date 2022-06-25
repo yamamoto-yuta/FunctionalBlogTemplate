@@ -49,7 +49,7 @@ export default function MyApp(props: MyAppProps) {
         <ExternalMetadataContext.Provider value={{ metadata, setMetadata }}>
           <ArticlesContext.Provider value={{ posts, setPosts }}>
             <Component {...pageProps} />
-            <Box sx={{m: '2rem'}}/>
+            <Box sx={{ m: '2rem' }} />
           </ArticlesContext.Provider>
         </ExternalMetadataContext.Provider>
       </ThemeProvider>

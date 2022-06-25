@@ -106,7 +106,14 @@ const Previewed = ({
     if (pageType === 'article') {
       return <ArticlePage config={config} post={object} />
     } else if (pageType === 'index') {
-      return <IndexPage config={config} index={object} stared_posts={[]} new_posts={[]}/>
+      return (
+        <IndexPage
+          config={config}
+          index={object}
+          stared_posts={[]}
+          new_posts={[]}
+        />
+      )
     } else {
       return <div />
     }
@@ -156,7 +163,7 @@ const Preview: NextPage<Props> = ({
           </Grid>
           <Grid item sm={0.2} xs={0} />
           <Grid item sm={7.6} xs={12}>
-            <Previewed pageType={pageType} config={config} object={object}/>
+            <Previewed pageType={pageType} config={config} object={object} />
           </Grid>
           <Grid item sm={0.2} xs={0} />
         </Grid>

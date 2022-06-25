@@ -18,6 +18,20 @@ export const ArticlePage = ({
       <Typography variant="h1" align="center">
         {post.title}
       </Typography>
+      <Typography fontSize="14px" align="center" color="text.secondary">
+        {post.posted_at}に公開
+      </Typography>
+      {post.updated_at && (
+        <Typography
+          fontSize="14px"
+          align="center"
+          color="text.secondary"
+          sx={{ mt: 0.3 }}
+        >
+          {post.updated_at}に更新
+        </Typography>
+      )}
+
       <Box sx={{ m: 3 }} />
       <Box
         sx={{

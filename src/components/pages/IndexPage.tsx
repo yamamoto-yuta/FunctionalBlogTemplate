@@ -21,7 +21,7 @@ export const IndexPage = ({
 }) => {
   return (
     <div>
-      <HeaderTitle config={config} index={index}/>
+      <HeaderTitle config={config} index={index} />
       <Box sx={{ m: '3rem' }} />
 
       <MarkdownRenderer>{'## おすすめの記事'}</MarkdownRenderer>
