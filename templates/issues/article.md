@@ -7,13 +7,18 @@ assignees: ''
 
 ---
 ```yaml
-# OGP description. 記事の概要．
-ogp_description: 記事の説明文
+# 必要に合わせてコメントアウトを外して記載してください
 
-# OGP image. OGP画像のテーマ設定 = 'default' | Image URL
-ogp_img_theme: default
+# 記事の説明文(無い場合は本文先頭200文字を使用)
+#ogp_description:
 
-# 予約投稿の日時(投稿したい日時を記載)
+# サムネイル画像のテーマ -> 'default' or 'upload'
+thumbnail_theme: default
+
+# サムネイル画像の背景画像(1280x670px推奨, なくてもOK)
+#thumbnail_image_url: 
+
+# 予約投稿の日時(無い場合は現在時刻を使用)
 #posted_at: YYYY年MM月DD日 hh時mm分
 ```
 ## title
