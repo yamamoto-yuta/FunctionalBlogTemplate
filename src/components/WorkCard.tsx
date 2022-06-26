@@ -5,7 +5,6 @@ import {
   Box,
   Button,
   Card,
-  CardContent,
   CardMedia,
   Grid,
   Link,
@@ -13,7 +12,6 @@ import {
 } from '@mui/material'
 import { rootPath } from '../lib/consts'
 import { MarkdownRenderer } from './MarkdownRenderer'
-import 'swiper/css/bundle'
 import { scrollBarStyle } from './ScrollBar'
 
 SwiperCore.use([Pagination, Navigation])
