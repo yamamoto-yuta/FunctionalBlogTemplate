@@ -255,8 +255,10 @@ const Paragraph: Components['p'] = ({ node, ...props }) => {
     return (
       <Grid container>
         <Grid item xs={0} sm={2} />
-        <Grid item xs={0} sm={8}>
-          <PostCard {...post} />
+        <Grid item xs={12} sm={8}>
+          <Box sx={{ mb: '0.5rem', mt: '0.5rem' }}>
+            <PostCard {...post} />
+          </Box>
         </Grid>
         <Grid item xs={0} sm={2} />
       </Grid>
