@@ -139,7 +139,7 @@ const LineBubble = ({
     <Box sx={{ mb: 1 }}>
       {bubblePrefix}
       <Grid container>
-        <Grid item xs={10} sm={11}>
+        <Grid item xs={10} sm={10.5} md={11}>
           <Box
             sx={{
               borderRadius: '16px',
@@ -158,8 +158,10 @@ const LineBubble = ({
             <MarkdownRenderer>{text}</MarkdownRenderer>
           </Box>
         </Grid>
-        <Grid item xs={2} sm={1}>
-          <Typography fontSize={11}>{date}</Typography>
+        <Grid item xs={2} sm={1.5} md={1}>
+          <Typography fontSize={11} sx={{ mt: 1 }}>
+            {date}
+          </Typography>
         </Grid>
       </Grid>
     </Box>
