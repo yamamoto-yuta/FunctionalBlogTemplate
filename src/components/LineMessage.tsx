@@ -33,7 +33,7 @@ export const LineMessage = ({
         }
         return (
           <div>
-            {isNewYear ? <YearText year={year} /> : ''}
+            {isNewYear ? <YearText year={year} key={year}/> : ''}
             <LineBubble
               key={d['date']}
               avatarName={avatarName}
