@@ -72,7 +72,7 @@ export const AppBarWithTitle = ({ config }: { config: ConfigJson }) => {
           </Grid>
         </Toolbar>
       </AppBar>
-      <Box sx={{ m: '6rem' }} />
+      <Box sx={{ m: '4rem' }} />
     </div>
   )
 }
