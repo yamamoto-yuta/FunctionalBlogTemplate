@@ -54,9 +54,7 @@ export default function MyApp(props: MyAppProps) {
         <CssBaseline />
         <ExternalMetadataContext.Provider value={{ metadata, setMetadata }}>
           <ArticlesContext.Provider value={{ posts, setPosts }}>
-          {show_screen ?
-            <Component {...pageProps} />
-          : ''}
+            {show_screen ? <Component {...pageProps} /> : ''}
             <Box sx={{ m: '2rem' }} />
           </ArticlesContext.Provider>
         </ExternalMetadataContext.Provider>
