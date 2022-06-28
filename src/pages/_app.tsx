@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { CacheProvider, EmotionCache } from '@emotion/react'
 import theme from '../lib/theme'
 import createEmotionCache from '../lib/createEmotionCache'
-import { createContext, Dispatch, useState } from 'react'
+import { createContext, Dispatch, useEffect, useState } from 'react'
 import { ArticlesMap } from '../lib/api/article'
 import { ExternalMetadata } from '../lib/api/externalMetadata'
 import { Box } from '@mui/material'
@@ -38,6 +38,12 @@ export default function MyApp(props: MyAppProps) {
   const initMetadata: ExternalMetadata = Object.create(null)
   const [posts, setPosts] = useState(initPosts)
   const [metadata, setMetadata] = useState(initMetadata)
+  const [show_screen, setShowScreen] = useState(false)
+
+  useEffect(() => {
+    setShowScreen(true)
+  }, [])
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -48,7 +54,9 @@ export default function MyApp(props: MyAppProps) {
         <CssBaseline />
         <ExternalMetadataContext.Provider value={{ metadata, setMetadata }}>
           <ArticlesContext.Provider value={{ posts, setPosts }}>
+          {show_screen ?
             <Component {...pageProps} />
+          : ''}
             <Box sx={{ m: '2rem' }} />
           </ArticlesContext.Provider>
         </ExternalMetadataContext.Provider>
