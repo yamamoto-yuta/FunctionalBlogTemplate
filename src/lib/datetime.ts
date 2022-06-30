@@ -10,17 +10,19 @@ export const getNow = () => {
   return dt
 }
 
-export const formatDatetime = (dt: string) => {
+export const formatDatetime = (dt: Date) => {
   const timezone = 9
-  
+
   try {
-  // UTC -> JST
-  const ymdhms = dt.split(' ')
-    let ymd = ymdhms[0].split('-').map((d: string) => {return Number(d)})
-    const _hms = ymdhms[1].split('+')
-    let hms = _hms[0].split(':').map((d: string) => {return Number(d)})
-    hms[0] += timezone
-    const datetime = new Date(ymd[0], ymd[1], ymd[2], hms[0], hms[1], hms[2])
+    // UTC -> JST
+    const datetime = new Date(
+      dt.getFullYear(),
+      dt.getMonth(),
+      dt.getDate(),
+      dt.getHours() + timezone,
+      dt.getMinutes(),
+      dt.getSeconds(),
+    )
 
     // Format datetime string
     const year = ('    ' + datetime.getFullYear()).slice(-4)

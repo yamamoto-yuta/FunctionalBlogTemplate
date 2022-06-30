@@ -69,20 +69,14 @@ export const getArticleBySlug = (slug: string, fields: string[] = []) => {
         return tagsDict[tag_id]
       })
     }
-    if (
-      field === 'posted_at' ||
-      field === 'updated_at'
-    ) {
+    if (field === 'posted_at' || field === 'updated_at') {
       if (data[field] === undefined) {
         items[field] = ''
       } else {
-        items[field] = formatDatetime(data[field].toString())
+        items[field] = formatDatetime(data[field])
       }
     }
-    if (
-      field === 'title' ||
-      field === 'description'
-    ) {
+    if (field === 'title' || field === 'description') {
       if (data[field] === undefined) {
         items[field] = ''
       } else {
