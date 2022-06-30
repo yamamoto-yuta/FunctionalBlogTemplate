@@ -76,7 +76,7 @@ export const getArticleBySlug = (slug: string, fields: string[] = []) => {
       if (data[field] === undefined) {
         items[field] = ''
       } else {
-        items[field] = formatDatetime(data[field])
+        items[field] = data[field].toString()//formatDatetime(data[field])
       }
     }
     if (
