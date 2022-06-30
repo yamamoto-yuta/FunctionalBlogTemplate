@@ -9,7 +9,6 @@ import { createContext, Dispatch, useEffect, useState } from 'react'
 import { ArticlesMap } from '../lib/api/article'
 import { ExternalMetadata } from '../lib/api/externalMetadata'
 import { Box } from '@mui/material'
-import 'swiper/css/bundle'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()

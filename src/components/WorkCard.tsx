@@ -13,6 +13,7 @@ import {
 import { rootPath } from '../lib/consts'
 import { MarkdownRenderer } from './MarkdownRenderer'
 import { scrollBarStyle } from './ScrollBar'
+import 'swiper/css/bundle'
 
 SwiperCore.use([Pagination, Navigation])
 

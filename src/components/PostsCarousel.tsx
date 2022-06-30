@@ -3,6 +3,7 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper'
 import { Box } from '@mui/material'
 import { PostCard } from './PostCard'
 import { Article } from '../lib/api/article'
+import 'swiper/css/bundle'
 
 SwiperCore.use([Pagination, Navigation, Autoplay])
 
