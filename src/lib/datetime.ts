@@ -13,6 +13,9 @@ export const getNow = () => {
 export const formatDatetime = (dt: string) => {
   const timezone = 9
   
+  if (typeof dt !== 'string') {
+    return ''
+  }
   // UTC -> JST
   const ymdhms = dt.split(' ')
   if (typeof ymdhms[0] !== 'string' || typeof ymdhms[1] !== 'string') {
