@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { getTagsJson, Tag } from './tags'
+import { formatDatetime } from '../datetime'
 
 export type Article = {
   slug: string
@@ -69,9 +70,17 @@ export const getArticleBySlug = (slug: string, fields: string[] = []) => {
       })
     }
     if (
-      field === 'title' ||
       field === 'posted_at' ||
-      field === 'updated_at' ||
+      field === 'updated_at'
+    ) {
+      if (data[field] === undefined) {
+        items[field] = ''
+      } else {
+        items[field] = formatDatetime(data[field])
+      }
+    }
+    if (
+      field === 'title' ||
       field === 'description'
     ) {
       if (data[field] === undefined) {
