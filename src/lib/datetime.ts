@@ -17,7 +17,7 @@ export const formatDatetime = (dt: Date) => {
     // UTC -> JST
     const datetime = new Date(
       dt.getFullYear(),
-      dt.getMonth(),
+      dt.getMonth() + 1,
       dt.getDate(),
       dt.getHours() + timezone,
       dt.getMinutes(),
