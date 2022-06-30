@@ -19,7 +19,7 @@ thumbnail_theme: default
 #thumbnail_image_url: 
 
 # 予約投稿の日時(無い場合は現在時刻を使用)
-#posted_at: YYYY年MM月DD日 hh時mm分
+#posted_at: YYYY-MM-DD hh:mm
 ```
 ## title
 content
