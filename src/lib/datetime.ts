@@ -14,8 +14,18 @@ export const formatDatetime = (dt: string) => {
   const timezone = 9
   
   // UTC -> JST
-  let ymd = dt.split(' ')[0].split('-').map((d: string) => {return Number(d)})
-  let hms = dt.split(' ')[1].split('+')[0].split(':').map((d: string) => {return Number(d)})
+  const ymdhms = dt.split(' ')
+  if (typeof ymdhms[0] !== 'string' || typeof ymdhms[1] !== 'string') {
+    return ''
+  }
+
+  let ymd = ymdhms[0].split('-').map((d: string) => {return Number(d)})
+
+  const _hms = ymdhms[1].split('+')
+  if (typeof _hms[0] !== 'string' || typeof _hms[1] !== 'string') {
+    return ''
+  }
+  let hms = _hms[0].split(':').map((d: string) => {return Number(d)})
   hms[0] += timezone
   const datetime = new Date(ymd[0], ymd[1], ymd[2], hms[0], hms[1], hms[2])
 
