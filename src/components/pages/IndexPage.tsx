@@ -22,12 +22,10 @@ export const IndexPage = ({
   return (
     <div>
       <HeaderTitle config={config} index={index} />
-      <Box sx={{ m: '3rem' }} />
-
+      
       <MarkdownRenderer>{'## おすすめの記事'}</MarkdownRenderer>
       <PostsCarousel posts={stared_posts} />
 
-      <Box sx={{ mt: '2rem' }} />
       <MarkdownRenderer>{'## 新着記事'}</MarkdownRenderer>
       <Box sx={{ ml: { sm: '3rem', xs: 0 }, mr: { sm: '3rem', xs: 0 } }}>
         <PostCards posts={new_posts} page={1} postNumPerPage={6} />
@@ -46,7 +44,7 @@ export const IndexPage = ({
           pr: { sm: '2rem', xs: '1rem' },
           pt: 0,
           pb: '1rem',
-          mt: '4rem',
+          mt: '2rem',
         }}
       >
         <MarkdownRenderer>{index.site_description}</MarkdownRenderer>
