@@ -15,7 +15,7 @@ export const HeaderTitle = ({
     <Box
       sx={{
         borderRadius: '24px',
-        backgroundColor: '#d0c6a3',
+        backgroundColor: '#29334a',
         pl: { sm: '2rem', xs: '1rem' },
         pr: { sm: '2rem', xs: '1rem' },
         pb: '1rem',
