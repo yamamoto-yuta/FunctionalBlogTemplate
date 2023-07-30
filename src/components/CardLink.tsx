@@ -31,7 +31,7 @@ export const CardLink = ({ url }: { url: string }) => {
     )
   }
   let description = metadata[url]['description']
-  if (description === undefined) {
+  if (description == undefined) {   // 文字列以外が入っていた場合
     description = ''
   }
   const description_max_length = 100
